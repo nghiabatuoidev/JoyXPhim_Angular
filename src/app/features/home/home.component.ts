@@ -196,13 +196,34 @@ export class HomeComponent {
   ];
 
   slideConfig = {
-    slidesToShow: 5.1,
+    slidesToShow: 5,
     slidesToScroll: 5,
     infinite: false,
     autoplay: true,
     autoplaySpeed: 5000,
     prevArrow: '.prev-arrow',
     nextArrow: '.next-arrow',
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: false,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: false,
+          dots: true,
+        },
+      },
+    ],
   };
 
   // Constructor
@@ -212,22 +233,13 @@ export class HomeComponent {
   ngOnInit() {}
 
   // Component Methods
-  slickInit(e: any) {
-    console.log('slick initialized');
-  }
+  slickInit(e: any) {}
 
-  breakpoint(e: any) {
-    console.log('breakpoint');
-  }
+  breakpoint(e: any) {}
 
-  afterChange(e: any) {
-    this.currentSlideIndex = e.currentSlide;
-    console.log('afterChange' + e.currentSlide);
-  }
+  afterChange(e: any) {}
 
-  beforeChange(e: any) {
-    console.log('beforeChange' + e.currentSlide);
-  }
+  beforeChange(e: any) {}
 
   trackByFn(index: any, item: any) {
     return item.img; // unique id corresponding to the item

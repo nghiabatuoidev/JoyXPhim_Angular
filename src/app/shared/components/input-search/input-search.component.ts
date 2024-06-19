@@ -1,22 +1,51 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+} from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Subject, debounceTime, distinctUntilChanged, filter, takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'app-input-search',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: `./input-search.component.html`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class InputSearchComponent {
-  searchTerm: string = '';
-  // Hàm xử lý khi người dùng nhập từ khoá tìm kiếm
-  onSearch() {
-    // Thực hiện tìm kiếm dựa trên từ khoá searchTerm
-    if (this.searchTerm.trim() !== '') {
-      console.log(this.searchTerm);
-    } else {
-    }
+  isLoading: boolean = false;
+  searchControl = new FormControl();
+  private onDestroy$ = new Subject<void>();
+
+  constructor(private cdr: ChangeDetectorRef) {
+    this.searchControl.valueChanges
+      .pipe(
+        tap((value) => value.trim()),
+        //lọc value > 5 kí tự
+        filter((value) => value.length >= 5),
+        distinctUntilChanged(),
+        debounceTime(500),
+        tap(() => {
+          this.isLoading = true;
+          //detectChanges được gọi chủ động để cập nhật lại toàn bộ view hiện tại
+          this.cdr.detectChanges(); // Manually trigger change detection
+        }),
+        takeUntil(this.onDestroy$)
+      )
+      .subscribe((value) => {
+        console.log(value);
+        // Handle the debounced input value
+        setTimeout(() => {
+          this.isLoading = false;
+          this.cdr.detectChanges(); // Manually trigger change detection
+        }, 1000);
+      });
+  }
+  // ngOnDestroy sẽ được gọi khi 1 component sắp bị hủy
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 }

@@ -1,6 +1,6 @@
-<div class="px-4 py-6 container">
+<div class="px-4 py-6 container max-w-full">
   <div class="px-4">
-    <!-- section 1 -->
+    <!-- Phim Đang Hot -->
     <div>
       <span
         class="text-md font-medium text-gray-200 uppercase pl-2 border-l-[3px] border-solid border-[#da966e]"
@@ -23,7 +23,7 @@
             ></i>
           </button>
         </div>
-        <div class="pt-4 pb-8 container">
+        <div class="pt-4 pb-8 container max-w-full">
           <ngx-slick-carousel
             class="carousel"
             #slickModal="slick-carousel"
@@ -36,13 +36,16 @@
             <div
               ngxSlickItem
               *ngFor="let slide of slides; let i = index; trackBy: trackByFn"
-              class="slide pr-3 group"
+              class="slide group mx-1.5"
             >
               <div
                 class="flicking-camera h-[252px] box-border bg-cover bg-center max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2"
                 [ngStyle]="{ 'background-image': 'url(' + slide.img + ')' }"
               >
-                <a href="#" class="flex flex-col justify-between h-full w-full">
+                <a
+                  href="#"
+                  class="grow flex flex-col justify-between h-full w-full"
+                >
                   <div class="flex justify-between">
                     <span
                       class="font-medium text-xs py-1 px-2 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
@@ -73,8 +76,8 @@
 
     <div>
       <div class="flex flex-row pt-4">
-        <div class="basis-3/4">
-          <!-- section 2 -->
+        <div class="w-full sm:basis-3/4 max-w-full">
+          <!-- Phim Bộ, Phim Lẻ -->
           <div class="py-2 text-gray-100">
             <div class="flex gap-x-3 pb-2">
               <div
@@ -116,7 +119,9 @@
                       >
                         {{ movie.nameVi }}
                       </h3>
-                      <p class="text-sm font-medium text-gray-400 truncate capitalize">
+                      <p
+                        class="text-sm font-medium text-gray-400 truncate capitalize"
+                      >
                         {{ movie.nameEn }}
                       </p>
                     </div>
@@ -155,7 +160,9 @@
                       >
                         {{ movie.nameVi }}
                       </h3>
-                      <p class="text-sm font-medium text-gray-400 truncate capitalize">
+                      <p
+                        class="text-sm font-medium text-gray-400 truncate capitalize"
+                      >
                         {{ movie.nameEn }}
                       </p>
                     </div>
@@ -171,7 +178,7 @@
               </div>
             </div>
           </div>
-          <!-- section 3 -->
+          <!-- Phim Đề Cử -->
           <div class="py-2 mt-4">
             <div class="flex gap-x-3 pb-2">
               <div
@@ -351,8 +358,9 @@
             </div>
           </div>
         </div>
-        <!-- navbar1 -->
-        <div class="basis-1/4">
+
+        <div class="basis-1/4 hidden sm:block">
+          <!-- Bảng xếp hạng -->
           <div class="py-3 pl-8">
             <span
               class="uppercase font-medium text-gray-200 text-md border-b border-zinc-800 w-full block pb-2 mb-2"
@@ -370,7 +378,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -394,7 +402,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -417,7 +425,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -440,7 +448,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -463,7 +471,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -486,7 +494,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -509,7 +517,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -532,7 +540,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -547,7 +555,8 @@
               </a>
             </div>
           </div>
-          <!-- Part 2 -->
+
+          <!-- Phim sắp chiếu -->
           <div class="pt-6 pl-8">
             <span
               class="uppercase font-medium text-gray-200 text-md border-b border-zinc-800 w-full block pb-2 mb-2"
@@ -565,7 +574,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -589,7 +598,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -612,7 +621,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -635,7 +644,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -658,7 +667,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -681,7 +690,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -704,7 +713,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
@@ -727,7 +736,7 @@
                     class="w-full h-full object-cover object-center rounded-md"
                   />
                 </div>
-                <div class="basis-3/5">
+                <div class="basis-3/5 truncate">
                   <span class="text-gray-300 text-[14px] truncate font-medium"
                     >Begin Youth</span
                   >
