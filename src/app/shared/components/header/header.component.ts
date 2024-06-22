@@ -3,39 +3,45 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Ripple, Collapse, Dropdown, initTWE } from 'tw-elements';
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 import { InputSearchComponent } from '../input-search/input-search.component';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, ClickOutsideDirective, InputSearchComponent],
+  imports: [
+    CommonModule,
+    ClickOutsideDirective,
+    InputSearchComponent,
+    RouterLink,
+    RouterLinkActive,
+  ],
   templateUrl: `./header.component.html`,
-  styleUrl: './header.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   isOpenMenu: boolean = false;
   isOpenType: boolean = false;
   isOpenCountry: boolean = false;
-  isOpenInput : boolean = false;
+  isOpenInput: boolean = false;
   ngOnInit() {
     initTWE({ Dropdown, Ripple, Collapse });
   }
   //menu
-  toggleDropdown() : any {
+  toggleDropdown(): any {
     this.isOpenMenu = !this.isOpenMenu;
   }
-  closeDropdown() : any {
+  closeDropdown(): any {
     this.isOpenMenu = false;
   }
   //type
-  toggleType() : any {
+  toggleType(): any {
     this.isOpenType = !this.isOpenType;
   }
   //Country
-  toggleCountry() : any {
+  toggleCountry(): any {
     this.isOpenCountry = !this.isOpenCountry;
   }
   //Input Search
-  toogleInput() : any {
-    this.isOpenInput =!this.isOpenInput;
-}
+  toogleInput(): any {
+    this.isOpenInput = !this.isOpenInput;
+  }
 }

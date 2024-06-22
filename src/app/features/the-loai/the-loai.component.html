@@ -1,0 +1,1391 @@
+<div class="px-4">
+  <app-breadcrumbs />
+  <h1 class="text-2xl font-normal text-gray-200 uppercase text-center py-2">
+    Phim Hành Động
+  </h1>
+  <div class="flex">
+    <div class="basis-3/4">
+      <!-- box search -->
+      <section>
+        <div class="flex flex-wrap text-gray-200 my-2">
+          <div class="w-1/2 sm:w-48 pr-2 mb-2">
+            <div class="relative mt-1">
+              <button
+                id="dropdownDefaultButtonMoiCapNhat"
+                data-dropdown-toggle="dropdownMoiCapNhat"
+                class="relative w-full  cursor-default rounded-lg bg-zinc-800 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-offset-orange-300 text-sm"
+                type="button"
+              >
+                <span class="text-gray-200 block truncate">Mới Cập Nhật</span
+                ><span
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    class="h-5 w-5 text-gray-300"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownMoiCapNhat"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              >
+                <ul
+                  class="py-2 text-sm text-gray-200 dark:text-gray-200 max-h-60 w-full overflow-auto"
+                  aria-labelledby="dropdownDefaultButtonMoiCapNhat"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Mới Cập Nhật</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Lượt Xem</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Năm Sản Xuất</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="w-1/2 sm:w-48 pr-2 mb-2">
+            <div class="relative mt-1">
+              <button
+                id="dropdownDefaultButtonHanhDong"
+                data-dropdown-toggle="dropdownHanhDong"
+                class="relative w-full  cursor-default rounded-lg bg-zinc-800 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-offset-orange-300 text-sm"
+                type="button"
+              >
+                <span class="text-gray-200 block truncate">Hành Động</span
+                ><span
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    class="h-5 w-5 text-gray-300"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownHanhDong"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              >
+                <ul
+                  class="py-2 text-sm text-gray-200 dark:text-gray-200 max-h-60 w-full overflow-auto"
+                  aria-labelledby="dropdownDefaultButtonHanhDong"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Thể Loại</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Hành Động</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Cổ Trang</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Viễn Tưởng</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Kinh Dị</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Tài Liệu</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Bí Ẩn</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >18+</a
+                    >
+                  </li> <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Tình Cảm</a
+                    >
+                  </li> <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Tâm Lý</a
+                    >
+                  </li> <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Thể Thao</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Phiêu Lưu</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Âm Nhạc</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Gia Đình</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="w-1/2 sm:w-48 pr-2 mb-2">
+            <div class="relative mt-1">
+              <button
+                id="dropdownDefaultButtonQuocGia"
+                data-dropdown-toggle="dropdownQuocGia"
+                class="relative w-full  cursor-default rounded-lg bg-zinc-800 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-offset-orange-300 text-sm"
+                type="button"
+              >
+                <span class="text-gray-200 block truncate">Quốc Gia</span
+                ><span
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    class="h-5 w-5 text-gray-300"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownQuocGia"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              >
+                <ul
+                  class="py-2 text-sm text-gray-200 dark:text-gray-200 max-h-60 w-full overflow-auto"
+                  aria-labelledby="dropdownDefaultButtonQuocGia"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Việt Nam</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Trung Quốc</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Hàn Quốc</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Thái Lan</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Hồng Kong</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Pháp</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Thái Lan</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Đức</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Đức</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w-1/2 sm:w-48 pr-2 mb-2">
+            <div class="relative mt-1">
+              <button
+                id="dropdownDefaultButtonPhimBoLe"
+                data-dropdown-toggle="dropdownPhimBoLe"
+                class="relative w-full  cursor-default rounded-lg bg-zinc-800 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-offset-orange-300 text-sm"
+                type="button"
+              >
+                <span class="text-gray-200 block truncate">Phim Bộ/Lẻ</span
+                ><span
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    class="h-5 w-5 text-gray-300"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownPhimBoLe"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              >
+                <ul
+                  class="py-2 text-sm text-gray-200 dark:text-gray-200 max-h-60 w-full overflow-auto"
+                  aria-labelledby="dropdownDefaultButtonPhimBoLe"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Earnings</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Sign out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w-1/2 sm:w-48 pr-2 mb-2">
+            <div class="relative mt-1">
+              <button
+                id="dropdownDefaultButtonNamSx"
+                data-dropdown-toggle="dropdownNamSx"
+                class="relative w-full  cursor-default rounded-lg bg-zinc-800 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-opacity-75 focus-visible:ring-offset-orange-300 text-sm"
+                type="button"
+              >
+                <span class="text-gray-200 block truncate">Năm Sản Xuất</span
+                ><span
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    class="h-5 w-5 text-gray-300"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownNamSx"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              >
+                <ul
+                  class="py-2 text-sm text-gray-200 dark:text-gray-200 max-h-60 w-full overflow-auto"
+                  aria-labelledby="dropdownDefaultButtonNamSx"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Earnings</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-zinc-600 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Sign out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w-full sm:w-48 pr-2">
+            <fieldset class="space-y-1 text-gray-100">
+              <legend class="hidden">Search</legend>
+              <div class="relative">
+                <input
+                  value=""
+                  type="search"
+                  placeholder="Từ Khóa..."
+                  class="w-full h-9 sm:h-9 pl-4 text-sm rounded-md sm:w-64 focus:outline-none bg-zinc-800 text-gray-100 focus:bg-zinc-800 "
+                />
+              </div>
+            </fieldset>
+          </div>
+          <div class="text-center w-full pt-1">
+            <button
+              type="button"
+              class="px-5 py-2 mb-2 text-sm rounded-full font-medium translate-y-1 bg-[#A3765D] hover:opacity-90 text-gray-300"
+            >
+              Tìm Kiếm
+            </button>
+          </div>
+        </div>
+      </section>
+      <div class="way-line"></div>
+      <!-- list film -->
+      <section class="pt-4">
+        <div
+          class="grid grid-cols-2 gap-x-3 md:gap-x-4 gap-y-4 sm:md:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4"
+        >
+          <!--[-->
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Mối Liên Kết Bí Ẩn 2024"
+                href="/connection"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/connection-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Mối Liên Kết Bí Ẩn 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Mối Liên Kết Bí Ẩn 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Mối Liên Kết Bí Ẩn 2024" href="/connection"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Mối Liên Kết Bí Ẩn
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Connection</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Tập 9 Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Cảnh Báo Đáp Trả 2024"
+                href="/canh-bao-dap-tra"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/canh-bao-dap-tra-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Cảnh Báo Đáp Trả 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Cảnh Báo Đáp Trả 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Cảnh Báo Đáp Trả 2024" href="/canh-bao-dap-tra"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Cảnh Báo Đáp Trả
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Trigger Warning</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Cửu Long Thành Trại: Vây Thành 2024"
+                href="/cuu-long-thanh-trai-vay-thanh"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/cuu-long-thanh-trai-vay-thanh-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Cửu Long Thành Trại: Vây Thành 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Cửu Long Thành Trại: Vây Thành 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Cửu Long Thành Trại: Vây Thành 2024"
+                  href="/cuu-long-thanh-trai-vay-thanh"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Cửu Long Thành Trại: Vây Thành
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Twilight Of The Warriors: Walled In</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Siêu Anh Hùng Phá Hoại (Phần 4) 2024"
+                href="/sieu-anh-hung-pha-hoai-phan-4"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/sieu-anh-hung-pha-hoai-phan-4-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Siêu Anh Hùng Phá Hoại (Phần 4) 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Siêu Anh Hùng Phá Hoại (Phần 4) 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Siêu Anh Hùng Phá Hoại (Phần 4) 2024"
+                  href="/sieu-anh-hung-pha-hoai-phan-4"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Siêu Anh Hùng Phá Hoại (Phần 4)
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >The Boys (Season 4)</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Tập 4 Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Thế Giới Ma Quái (Phần 3) 2024"
+                href="/the-gioi-ma-quai-phan-3"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/the-gioi-ma-quai-phan-3-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Thế Giới Ma Quái (Phần 3) 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Thế Giới Ma Quái (Phần 3) 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Thế Giới Ma Quái (Phần 3) 2024"
+                  href="/the-gioi-ma-quai-phan-3"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Thế Giới Ma Quái (Phần 3)
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Sweet Home Season 3</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Coming soon</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a title="Phim Tai Nạn 2024" href="/crash" class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/crash-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Tai Nạn 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Tai Nạn 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Tai Nạn 2024" href="/crash"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Tai Nạn
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Crash</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full 12/12 Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Bạn Gái Yêu Quái của Tôi 2024"
+                href="/my-undead-yokai-girlfriend"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/my-undead-yokai-girlfriend-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Bạn Gái Yêu Quái của Tôi 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Bạn Gái Yêu Quái của Tôi 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Bạn Gái Yêu Quái của Tôi 2024"
+                  href="/my-undead-yokai-girlfriend"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Bạn Gái Yêu Quái của Tôi
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >My Undead Yokai Girlfriend</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Tập 3 Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Những Tay Chơi Siêu Đẳng 2 2024"
+                href="/nhung-tay-choi-sieu-dang-2"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/nhung-tay-choi-sieu-dang-2-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Những Tay Chơi Siêu Đẳng 2 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Những Tay Chơi Siêu Đẳng 2 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Những Tay Chơi Siêu Đẳng 2 2024"
+                  href="/nhung-tay-choi-sieu-dang-2"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Những Tay Chơi Siêu Đẳng 2
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >The Player 2: Master of Swindlers</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Tập 6 Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Gia Tộc Rồng (Phần 2) 2024"
+                href="/gia-toc-rong-phan-2"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/gia-toc-rong-phan-2-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Gia Tộc Rồng (Phần 2) 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Gia Tộc Rồng (Phần 2) 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Gia Tộc Rồng (Phần 2) 2024"
+                  href="/gia-toc-rong-phan-2"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Gia Tộc Rồng (Phần 2)
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >House Of The Dragon Season 2</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Tập 1 Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim  Tay Phải Nhuốm Đỏ 2024"
+                href="/tay-phai-nhuom-do"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/red-right-hand-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt=" Tay Phải Nhuốm Đỏ 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim  Tay Phải Nhuốm Đỏ 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim  Tay Phải Nhuốm Đỏ 2024"
+                  href="/tay-phai-nhuom-do"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Tay Phải Nhuốm Đỏ
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Red Right Hand</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Dù Tôi Không Phải Người Hùng 2024"
+                href="/the-atypical-family"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/although-i-am-not-a-hero-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Dù Tôi Không Phải Người Hùng 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Dù Tôi Không Phải Người Hùng 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Dù Tôi Không Phải Người Hùng 2024"
+                  href="/the-atypical-family"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Dù Tôi Không Phải Người Hùng
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >The Atypical Family</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full 12/12 Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Phía Dưới Sông Seine 2024"
+                href="/phia-duoi-song-seine"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/phia-duoi-song-seine-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Phía Dưới Sông Seine 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Phía Dưới Sông Seine 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Phía Dưới Sông Seine 2024"
+                  href="/phia-duoi-song-seine"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Phía Dưới Sông Seine
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Under Paris</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a title="Phim Biến Thể 2024" href="/bien-the" class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/bien-the-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Biến Thể 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Biến Thể 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Biến Thể 2024" href="/bien-the"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Biến Thể
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Mutant</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full HD Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Furiosa: Câu Chuyện Từ Max Điên 2024"
+                href="/furiosa-cau-chuyen-tu-max-dien"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/furiosa-cau-chuyen-tu-max-dien-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Furiosa: Câu Chuyện Từ Max Điên 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Furiosa: Câu Chuyện Từ Max Điên 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Furiosa: Câu Chuyện Từ Max Điên 2024"
+                  href="/furiosa-cau-chuyen-tu-max-dien"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Furiosa: Câu Chuyện Từ Max Điên
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Furiosa: A Mad Max Saga</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Cam Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Tuyệt Mệnh Thư Kích 2024"
+                href="/tuyet-menh-thu-kich"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/tuyet-menh-thu-kich-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Tuyệt Mệnh Thư Kích 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Tuyệt Mệnh Thư Kích 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Tuyệt Mệnh Thư Kích 2024"
+                  href="/tuyet-menh-thu-kich"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Tuyệt Mệnh Thư Kích
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Desperate Sniper</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full HD Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a title="Phim Sinh Hóa 2024" href="/sinh-hoa" class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/sinh-hoa-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Sinh Hóa 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Sinh Hóa 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Sinh Hóa 2024" href="/sinh-hoa"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Sinh Hóa
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Bionic</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Chàng Trai Chọi Cả Thế Giới 2024"
+                href="/chang-trai-choi-ca-the-gioi"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/chang-trai-choi-ca-the-gioi-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Chàng Trai Chọi Cả Thế Giới 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Chàng Trai Chọi Cả Thế Giới 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Chàng Trai Chọi Cả Thế Giới 2024"
+                  href="/chang-trai-choi-ca-the-gioi"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Chàng Trai Chọi Cả Thế Giới
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Boy Kills World</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Vây Hãm: Kẻ Trừng Phạt 2024"
+                href="/vay-ham-ke-trung-phat"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/vay-ham-su-trung-phat-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Vây Hãm: Kẻ Trừng Phạt 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Vây Hãm: Kẻ Trừng Phạt 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Vây Hãm: Kẻ Trừng Phạt 2024"
+                  href="/vay-ham-ke-trung-phat"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Vây Hãm: Kẻ Trừng Phạt
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >The Roundup: Punishment</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full HD Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a title="Phim Atlas 2024" href="/atlas" class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/atlas-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Atlas 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Atlas 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Atlas 2024" href="/atlas"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Atlas
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Atlas</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full HD Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Kẻ Thế Thân 2024"
+                href="/ke-the-than"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/ke-the-than-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Kẻ Thế Thân 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Kẻ Thế Thân 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Kẻ Thế Thân 2024" href="/ke-the-than"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Kẻ Thế Thân
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >The Fall Guy</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full HD Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Tứ Vương 2 2023"
+                href="/tu-vuong-2"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/tu-vuong-2-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Tứ Vương 2 2023"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Tứ Vương 2 2023"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Tứ Vương 2 2023" href="/tu-vuong-2"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Tứ Vương 2
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >4 Kings 2</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full HD Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Người Tình Sát Thủ 2024"
+                href="/nguoi-tinh-sat-thu"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/nguoi-tinh-sat-thu-2024-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Người Tình Sát Thủ 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Người Tình Sát Thủ 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Người Tình Sát Thủ 2024"
+                  href="/nguoi-tinh-sat-thu"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Người Tình Sát Thủ
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Lien Li Assassin</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Tập 24 Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Golden Kamuy 2024"
+                href="/golden-kamuy-2024"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/avatar/golden-kamuy-2024-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Golden Kamuy 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Golden Kamuy 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a title="Phim Golden Kamuy 2024" href="/golden-kamuy-2024"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Golden Kamuy
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Golden Kamuy</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full Vietsub</span
+              >
+            </article>
+          </div>
+          <div>
+            <article
+              class="max-w-xs rounded-md group text-gray-50 relative overflow-hidden pb-2 bg-[#181818]"
+            >
+              <a
+                title="Phim Chánh Thanh Tra 1958 2024"
+                href="/chief-detective-1958"
+                class="relative"
+                ><img
+                  src="https://image.motchilltv.to/motchill/chief-detective-1958-x350.webp"
+                  onerror="this.setAttribute('data-error', 1)"
+                  alt="Chánh Thanh Tra 1958 2024"
+                  loading="lazy"
+                  data-nuxt-img=""
+                  title="Phim Chánh Thanh Tra 1958 2024"
+                  class="object-cover object-center w-full rounded-xl sm:rounded-md h-60 bg-zinc-800 scale-105 group-hover:scale-110 ease-in duration-200"
+              /></a>
+              <div class="mt-3 px-2">
+                <a
+                  title="Phim Chánh Thanh Tra 1958 2024"
+                  href="/chief-detective-1958"
+                  ><h3
+                    class="text-[15px] font-medium capitalize pt-1 block truncate"
+                  >
+                    Chánh Thanh Tra 1958
+                  </h3>
+                  <span class="text-sm font-medium text-gray-400 truncate"
+                    >Chief Detective 1958</span
+                  ></a
+                >
+              </div>
+              <span
+                class="font-medium text-xs py-[3px] px-1 block rounded-br-md rounded-tr-md bg-[#A3765D] absolute top-2 left-0 shadow-lg shadow-red-900/20"
+                >Full 10/10 Vietsub</span
+              >
+            </article>
+          </div>
+          <!--]-->
+        </div>
+        <div class="text-center pt-3 pb-4">
+          <ul id="componentContainer" class="pagination-container">
+            <!----><!----><!----><!----><!----><!--[-->
+            <li>
+              <a
+                href="/the-loai/hanh-dong?page=1"
+                class="paginate-buttons number-buttons active-page"
+                >1</a
+              >
+            </li>
+            <li>
+              <a
+                href="/the-loai/hanh-dong?page=2"
+                class="paginate-buttons number-buttons"
+                >2</a
+              >
+            </li>
+            <li>
+              <a
+                href="/the-loai/hanh-dong?page=3"
+                class="paginate-buttons number-buttons"
+                >3</a
+              >
+            </li>
+            <li>
+              <a
+                href="/the-loai/hanh-dong?page=4"
+                class="paginate-buttons number-buttons"
+                >4</a
+              >
+            </li>
+            <!--]-->
+            <li>
+              <a
+                href="/the-loai/hanh-dong?page=3"
+                class="ending-breakpoint-button paginate-buttons"
+                ><!--[-->...<!--]--></a
+              >
+            </li>
+            <li>
+              <a
+                href="/the-loai/hanh-dong?page=8"
+                class="last-button paginate-buttons"
+                >8</a
+              >
+            </li>
+            <!----><!----><!---->
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div class="basis-1/4 pl-7">
+      <div>
+        <app-aside-movie-nomination />
+        <app-aside-movie-trailer />
+      </div>
+    </div>
+  </div>
+</div>

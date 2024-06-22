@@ -31,4 +31,7 @@ body {
     transition: transform 0.3s ease;
     @apply group-hover:scale-105;
   }
+  .way-line {
+    @apply w-full h-px my-2 bg-zinc-800;
+  }
 }

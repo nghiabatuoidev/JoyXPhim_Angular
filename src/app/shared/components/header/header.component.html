@@ -1,4 +1,4 @@
-<header class="px-4">
+<header class="text-zinc-200">
   <div
     class="px-4 py-3 md:py-4 flex flex-row justify-between items-center relative"
   >
@@ -283,7 +283,12 @@
         </div>
       </button>
       <!-- button login -->
-      <a href="#" class="flex items-center">
+      <a
+        [routerLink]="['/dang-nhap']"
+        routerLinkActive="router-link-active"
+        class="flex items-center"
+        title="Đăng nhập"
+      >
         <i class="fa-regular fa-circle-user text-[28px]"></i>
       </a>
       <!-- if you login avatar is show -->
@@ -361,7 +366,7 @@
   <!-- input < md -->
   <app-input-search class="z-50 block md:hidden w-full" *ngIf="isOpenInput" />
   <!-- part2 -->
-  <div class="hidden md:block max-w-full">
+  <div class="hidden md:block w-full">
     <div class="flex py-3 px-4">
       <div class="py-2 pr-3 hover:text-custom-color-primary cursor-pointer">
         Trang chủ
@@ -369,7 +374,7 @@
       <!-- dropdown the loai -->
       <div class="relative" data-twe-dropdown-ref>
         <a
-          class="flex items-center py-2 px-3 transition duration-75 ease-in-out hover:text-custom-color-primary hover:shadow-primary-2 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+          class="flex items-center py-2 px-3 transition duration-75 ease-in-out hover:text-custom-color-primary"
           href="#"
           type="button"
           id="dropdownMenuButton2"
@@ -533,7 +538,7 @@
       <!-- dropdown quoc gia -->
       <div class="relative" data-twe-dropdown-ref>
         <a
-          class="flex items-center py-2 px-3 transition duration-75 ease-in-out hover:text-custom-color-primary hover:shadow-primary-2 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+          class="flex items-center py-2 px-3 transition duration-75 ease-in-out hover:text-custom-color-primary"
           href="#"
           type="button"
           id="dropdownMenuButton2"
@@ -662,23 +667,128 @@
           </div>
         </ul>
       </div>
-      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer">
+      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer capitalize">
         Phim Mới
       </div>
-      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer">
+      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer capitalize">
         Phim Bộ
       </div>
-      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer">
+      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer capitalize">
         Phim Lẻ
       </div>
-      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer">
+      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer capitalize">
         Phim Chiếu Rạp
       </div>
-      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer">
-        Trailer
+      <!-- dropdown năm phát hành -->
+      <div class="relative" data-twe-dropdown-ref>
+        <a
+          class="flex items-center py-2 px-3 transition duration-75 ease-in-out hover:text-custom-color-primary capitalize"
+          href="#"
+          type="button"
+          id="dropdownMenuButton2"
+          data-twe-dropdown-toggle-ref
+          aria-expanded="false"
+          data-twe-ripple-init
+          data-twe-ripple-color="light"
+        >
+          Năm sản xuất
+          <span class="ms-2 w-2 [&>svg]:h-5 [&>svg]:w-5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </a>
+        <ul
+          class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
+          aria-labelledby="dropdownMenuButton2"
+          data-twe-dropdown-menu-ref
+        >
+          <div class="grid grid-cols-4">
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2024</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2023</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2022</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2021</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2020</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2019</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2018</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2017</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="block w-full whitespace-nowrap bg-white p-4 text-sm font-normal text-neutral-700 hover:text-custom-color-primary hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                href="#"
+                data-twe-dropdown-item-ref
+                >2016</a
+              >
+            </li>
+          </div>
+        </ul>
       </div>
-      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer">
-        Năm Phát Hành
+      <div class="py-2 px-3 hover:text-custom-color-primary cursor-pointer capitalize">
+        Trailer
       </div>
     </div>
     <hr class="h-0.5 border-custom-color-primary opacity-30" />
