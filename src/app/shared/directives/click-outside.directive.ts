@@ -19,7 +19,10 @@ export class ClickOutsideDirective {
   @HostListener('document:click', ['$event.target'])
   onClick(target: HTMLElement) {
     const clickedInside = this.elementRef.nativeElement.contains(target);
-    if (!clickedInside) {
+    // Check if the clicked element or any of its ancestors have the ID 'buttonMenu'
+    const isInsideButtonMenu = target.closest('#buttonMenu') !== null;
+
+    if (!clickedInside && !isInsideButtonMenu) {
       this.clickOutside.emit();
     }
   }

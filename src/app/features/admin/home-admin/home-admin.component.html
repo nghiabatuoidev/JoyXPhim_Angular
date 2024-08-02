@@ -1,0 +1,10 @@
+<div class="bg-[#0E131F] overflow-hidden">
+  <app-header-admin/>
+  <div>
+    <div class="flex ">
+      <app-aside-menu-admin [ngClass]="{'hidden': !isToggleMenu}"/>
+      <router-outlet />
+    </div>
+    <app-footer-admin/>
+  </div>
+</div>

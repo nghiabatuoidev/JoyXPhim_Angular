@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "custom-color-primary": "#da966e", // Thay đổi mã màu theo ý muốn
+        "custom-color-primary": "#da966e",
+        "bg-admin-primary":"#19212C" // Thay đổi mã màu theo ý muốn
       },
     },
   },

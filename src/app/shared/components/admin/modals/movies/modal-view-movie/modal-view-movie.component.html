@@ -1,0 +1,166 @@
+<div
+  class="fixed left-0 right-0 z-50 items-center justify-center overflow-x-hidden overflow-y-hidden top-4 md:inset-0 h-modal sm:h-full flex bg-[#0B0F17]/70"
+  aria-modal="true"
+  role="dialog"
+>
+  <div class="relative w-[90%] h-[90%] px-4 md:h-[90vh] bg-[#11171E]">
+    <!-- Modal content -->
+    <div class="relative rounded-lg shadow">
+      <!-- Modal header -->
+      <div
+        class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700"
+      >
+        <h3 class="text-xl font-semibold">INF4 MOVIE ...</h3>
+        <button
+          (click)="triggerToggleModalViewMovie()"
+          type="button"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="p-4 md:p-5 space-y-4 overflow-auto h-[75vh] md:h-[80vh]">
+        <div
+          class="flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800"
+        >
+          <img
+            class="w-full rounded-t-lg max-h-80 md:rounded-none object-cover"
+            src="https://flowbite.com/docs/images/blog/image-4.jpg"
+            alt=""
+          />
+          <div class="flex flex-col p-4">
+            <div class="text-center mb-2">
+              <h5
+                class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                ĐẦU GẤU NGỌT NGÀO (VIETSUB)
+              </h5>
+              <h5>My Sweet Mobster</h5>
+            </div>
+
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-2">
+              <table
+                class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+              >
+                <tbody>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Trạng thái
+                    </th>
+                    <td class="px-6 py-4">Tập 10</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Số tập
+                    </th>
+                    <td class="px-6 py-4">16</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Thời lượng
+                    </th>
+                    <td class="px-6 py-4">60 phút</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Năm phát hành
+                    </th>
+                    <td class="px-6 py-4">2024</td>
+                  </tr>
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Chất lượng
+                    </th>
+                    <td class="px-6 py-4">HD</td>
+                  </tr>
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Ngôn ngữ
+                    </th>
+                    <td class="px-6 py-4">Vietsub</td>
+                  </tr>
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Đạo diễn
+                    </th>
+                    <td class="px-6 py-4">Đang cập nhật</td>
+                  </tr>
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Diễn viên
+                    </th>
+                    <td class="px-6 py-4">Đang cập nhật</td>
+                  </tr>
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Thể loại
+                    </th>
+                    <td class="px-6 py-4">Tình cảm</td>
+                  </tr>
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    >
+                      Quốc gia
+                    </th>
+                    <td class="px-6 py-4">Hàn Quốc</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="">
+              <div class="text-center">Content Movie</div>
+              <p class="border border-gray-200 p-2 text-sm">
+                Sự phấn khích bất ngờ tạo nên mối tình lãng mạn giữa Ji-hwan,
+                một cựu thành viên băng đảng to lớn, người đã xóa bỏ quá khứ đen
+                tối của mình và Eun-ha, một người phụ nữ nhỏ bé chơi đùa với trẻ
+                em vì công việc của mình.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
