@@ -1,23 +1,31 @@
-import { initialAuthState } from "./auth.state";
+import { createReducer, on } from '@ngrx/store';
+import * as AuthActions from './auth.action';
+import { initialState } from './auth.state';
 
-const _authReducer = createReducer(
-    initialAuthState,
-    on(login, (state, { user }) => ({
-      ...state,
-      user,
-      isLoggedIn: true
-    })),
-    on(logout, state => ({
-      ...state,
-      user: null,
-      isLoggedIn: false
-    }))
-  );
-  
-  export function authReducer(state: AuthState | undefined, action: Action) {
-    return _authReducer(state, action);
-  }
-
-function createReducer(initialAuthState: any, arg1: any, arg2: any) {
-    throw new Error("Function not implemented.");
-}
+export const authReducer = createReducer(
+  initialState,
+  on(AuthActions.login, (state) => ({
+    ...state,
+    isFetching: true,
+    isError: false,
+    isSuccess: false,
+    user: null,
+    error: null,
+  })),
+  on(AuthActions.loginSuccess, (state, { user }) => ({
+    ...state,
+    isSuccess: true,
+    isFetching: false,
+    isError: false,
+    user,
+    error: null,
+  })),
+  on(AuthActions.loginFailure, (state, { error }) => ({
+    ...state,
+    isError: true,
+    isSuccess: true,
+    isFetching: false,
+    user: null,
+    error,
+  }))
+);

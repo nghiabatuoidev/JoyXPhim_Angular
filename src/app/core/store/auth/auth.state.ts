@@ -1,9 +1,17 @@
 export interface AuthState {
-    user: any;
-    isLoggedIn: boolean;
-  }
+  isFetching: boolean;
+  isError: boolean;
+  isSuccess: boolean;
+  user: any;
+  error:any;
   
-  export const initialAuthState: AuthState = {
-    user: null,
-    isLoggedIn: false
-  };
+}
+
+export const initialState: AuthState = {
+  isFetching: false,
+  isSuccess: false,
+  isError:false,
+  user: null,
+  error: null
+};
+  
