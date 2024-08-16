@@ -3,30 +3,38 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
-  Output,
+  OnInit,
   ViewChild,
 } from '@angular/core';
 import { AsideMenuMobileAdminComponent } from '../aside-menu-mobile-admin/aside-menu-mobile-admincomponent';
 import { ClickOutsideDirective } from '../../../directives/click-outside.directive';
-
+import { Store } from '@ngrx/store';
+import * as AuthActions from '../../../../core/store/auth/auth.action';
+import { initFlowbite } from 'flowbite';
 @Component({
   selector: 'app-header-admin',
   standalone: true,
-  imports: [CommonModule, ClickOutsideDirective,AsideMenuMobileAdminComponent],
+  imports: [CommonModule, ClickOutsideDirective, AsideMenuMobileAdminComponent],
   templateUrl: `./header-admin.component.html`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderAdminComponent {
+export class HeaderAdminComponent implements OnInit {
   isToggleMenu: boolean = false;
-  @ViewChild('menu', { static: false }) menuRef!: ElementRef; 
+  @ViewChild('menu', { static: false }) menuRef!: ElementRef;
   
-  ngOnInit(): void {}
-  
-  handleOpenMenu = () => {
+  constructor(private store: Store) {}
+  ngOnInit(): void {
+    initFlowbite();
+  }
+
+  handleOpenMenu = () : void => {
     this.isToggleMenu = !this.isToggleMenu;
   };
-  handleCloseMenu = () => {
+  handleCloseMenu = () : void => {
     this.isToggleMenu = false;
+  };
+
+  handleLogout = (): void => {
+    this.store.dispatch(AuthActions.logout());
   };
 }

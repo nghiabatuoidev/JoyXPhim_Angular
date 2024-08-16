@@ -23,18 +23,4 @@ import { FooterAdminComponent } from '../../../shared/components/admin/footer-ad
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeAdminComponent {
-  isToggleMenu: boolean = true;
-  ngOnInit(): void {
-  }
-  // Đảm bảo menu được đóng khi component khởi tạo
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    const windowWidth = (event.target as Window).innerWidth;
-    if (windowWidth <= 1024) {
-      this.isToggleMenu = false;
-    }else {
-      this.isToggleMenu = true;
-    }
-  }
-  // Hàm đóng menu
 }

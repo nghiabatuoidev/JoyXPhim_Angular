@@ -23,7 +23,8 @@
               "src/styles.css",
               "src/assets/library/fontawesome-free-6.5.2-web/css/all.min.css",
               "./node_modules/slick-carousel/slick/slick.scss",
-              "./node_modules/slick-carousel/slick/slick-theme.scss"
+              "./node_modules/slick-carousel/slick/slick-theme.scss",
+              "node_modules/ngx-toastr/toastr.css" 
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",

@@ -12,6 +12,7 @@ import { ListPhimComponent } from './features/clients/list-phim/phim-le.componen
 import { NotFoundComponent } from './features/clients/not-found/not-found.component';
 import { ManageMoviesComponent } from './features/admin/manage-movies/manage-movies.component';
 import { ManageEpisodesComponent } from './features/admin/manage-episodes/manage-episodes.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   //user
@@ -28,7 +29,7 @@ export const routes: Routes = [
   },
   //admin
   { path: 'admin/login', component: LoginAdminComponent },
-  { path: 'admin', component: HomeAdminComponent ,
+  { path: 'admin', component: HomeAdminComponent , canActivate: [AuthGuard],
     children: [
       {path: '', component: ManageUserComponent},
       {path: 'manage-users', component: ManageUserComponent},

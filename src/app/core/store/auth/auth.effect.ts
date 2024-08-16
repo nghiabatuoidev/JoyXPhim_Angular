@@ -6,21 +6,24 @@ import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import * as AuthActions from './auth.action';
 import { AuthService } from '../../services/auth.service';
 import { LocalStorageService } from '../../services/local-storage.service';
-
+import { Router } from '@angular/router';
 @Injectable()
 export class AuthEffects {
-  constructor(private actions$: Actions, private authService: AuthService, private storageService: LocalStorageService) {}
+  constructor(private actions$: Actions, private authService: AuthService, private storageService: LocalStorageService, private router: Router) {}
 
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.login),
       mergeMap((action) =>
-        this.authService.login(action.email, action.password).pipe(
+        this.authService.Login(action.email, action.password).pipe(
           map((user) => {
+            console.log(user)
             this.storageService.setItem('auth', user);
             return AuthActions.loginSuccess({ user })
           }),
+          tap(() => this.router.navigate(['/admin'])),
           catchError((error) => {
+            console.log(error)
             return of(AuthActions.loginFailure({ error }));
           })
         )
@@ -28,6 +31,17 @@ export class AuthEffects {
     )
   );
 
+  logout$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.logout), // Lắng nghe hành động logout
+      tap(() => {
+        // Xóa thông tin xác thực khỏi storage
+        this.storageService.removeItem('auth');
+        this.router.navigate(['/admin/login']);
+      })
+    ),
+    { dispatch: false } // Không dispatch thêm action nào khác
+  );
   // saveAuthState$ = createEffect(
   //   () =>
   //     this.actions$.pipe(

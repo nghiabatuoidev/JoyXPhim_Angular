@@ -27,5 +27,13 @@ export const authReducer = createReducer(
     isFetching: false,
     user: null,
     error,
+  })),
+  on(AuthActions.logout, (state) => ({
+    ...state,
+    isError: false,
+    isFetching:false,
+    isSuccess:false,
+    user:null,
+    error:null
   }))
 );

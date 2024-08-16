@@ -1,4 +1,4 @@
-export interface AuthState {
+export interface IAuthState {
   isFetching: boolean;
   isError: boolean;
   isSuccess: boolean;
@@ -7,7 +7,7 @@ export interface AuthState {
   
 }
 
-export const initialState: AuthState = {
+export const initialState: IAuthState = {
   isFetching: false,
   isSuccess: false,
   isError:false,

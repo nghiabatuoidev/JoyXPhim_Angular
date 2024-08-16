@@ -77,7 +77,11 @@
             >Password cannot exceed 100 characters.</span
           >
         </div>
+        <ng-container *ngIf="auth$ | async as auth">
+          <span *ngIf="auth?.code == 1" class="text-red-600 text-sm mt-1">{{ auth?.message }}</span>
+        </ng-container>
       </div>
+
       <div>
         <button
           type="submit"

@@ -5,12 +5,14 @@
 >
   <div class="relative w-[90%] h-[90%] px-4 md:h-[90vh] bg-[#11171E]">
     <!-- Modal content -->
-    <div class="relative rounded-lg shadow">
+    <div *ngIf="movie$ | async as movie" class="relative rounded-lg shadow">
       <!-- Modal header -->
       <div
         class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700"
       >
-        <h3 class="text-xl font-semibold">INF4 MOVIE ...</h3>
+        <h3 class="text-xl font-semibold uppercase">
+          MOVIE: {{ movie?.data?.movieName }}
+        </h3>
         <button
           (click)="triggerToggleModalViewMovie()"
           type="button"
@@ -35,19 +37,21 @@
         <div
           class="flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800"
         >
-          <img
-            class="w-full rounded-t-lg max-h-80 md:rounded-none object-cover"
-            src="https://flowbite.com/docs/images/blog/image-4.jpg"
-            alt=""
-          />
-          <div class="flex flex-col p-4">
+          <div class="md:w-2/4 md:h-auto h-80">
+            <img
+              class="object-center md:object-cover w-full h-full"
+              [src]="movie?.data?.thumbUrl || urlImageNotFound"
+              alt="Not Image"
+            />
+          </div>
+          <div class="md:w-2/4 flex flex-col p-4">
             <div class="text-center mb-2">
               <h5
                 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                ĐẦU GẤU NGỌT NGÀO (VIETSUB)
+                {{ movie?.data?.movieName }}
               </h5>
-              <h5>My Sweet Mobster</h5>
+              <h5>{{ movie?.data?.movieOriginName }}</h5>
             </div>
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-2">
@@ -62,7 +66,13 @@
                     >
                       Trạng thái
                     </th>
-                    <td class="px-6 py-4">Tập 10</td>
+                    <td class="px-6 py-4">
+                      {{
+                        movie?.data?.episodeCurrent
+                          ? "Tập" + movie?.data?.episodeCurrent
+                          : "?"
+                      }}
+                    </td>
                   </tr>
                   <tr class="border-b border-gray-200 dark:border-gray-700">
                     <th
@@ -71,7 +81,13 @@
                     >
                       Số tập
                     </th>
-                    <td class="px-6 py-4">16</td>
+                    <td class="px-6 py-4">
+                      {{
+                        movie?.data?.episodeTotal
+                          ? movie?.data?.episodeTotal
+                          : "?"
+                      }}
+                    </td>
                   </tr>
                   <tr class="border-b border-gray-200 dark:border-gray-700">
                     <th
@@ -80,7 +96,7 @@
                     >
                       Thời lượng
                     </th>
-                    <td class="px-6 py-4">60 phút</td>
+                    <td class="px-6 py-4">{{ movie?.data?.movieTime }}</td>
                   </tr>
                   <tr class="border-b border-gray-200 dark:border-gray-700">
                     <th
@@ -89,7 +105,7 @@
                     >
                       Năm phát hành
                     </th>
-                    <td class="px-6 py-4">2024</td>
+                    <td class="px-6 py-4">{{ movie?.data?.year }}</td>
                   </tr>
                   <tr>
                     <th
@@ -98,7 +114,7 @@
                     >
                       Chất lượng
                     </th>
-                    <td class="px-6 py-4">HD</td>
+                    <td class="px-6 py-4">{{ movie?.data?.quality }}</td>
                   </tr>
                   <tr>
                     <th
@@ -107,7 +123,7 @@
                     >
                       Ngôn ngữ
                     </th>
-                    <td class="px-6 py-4">Vietsub</td>
+                    <td class="px-6 py-4">{{ movie?.data?.langValue }}</td>
                   </tr>
                   <tr>
                     <th
@@ -116,7 +132,13 @@
                     >
                       Đạo diễn
                     </th>
-                    <td class="px-6 py-4">Đang cập nhật</td>
+                    <td class="px-6 py-4">
+                      {{
+                        movie?.data?.directorName
+                          ? movie?.data?.directorName
+                          : "?"
+                      }}t
+                    </td>
                   </tr>
                   <tr>
                     <th
@@ -125,7 +147,11 @@
                     >
                       Diễn viên
                     </th>
-                    <td class="px-6 py-4">Đang cập nhật</td>
+                    <td class="px-6 py-4">
+                      {{
+                        movie?.data?.actorName ? movie?.data?.actorName : "?"
+                      }}
+                    </td>
                   </tr>
                   <tr>
                     <th
@@ -134,7 +160,9 @@
                     >
                       Thể loại
                     </th>
-                    <td class="px-6 py-4">Tình cảm</td>
+                    <td class="px-6 py-4">
+                      {{ movie?.data?.categoriesName?.join(", ") }}
+                    </td>
                   </tr>
                   <tr>
                     <th
@@ -143,7 +171,9 @@
                     >
                       Quốc gia
                     </th>
-                    <td class="px-6 py-4">Hàn Quốc</td>
+                    <td class="px-6 py-4">
+                      {{ movie?.data?.countriesName?.join(", ") }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -151,12 +181,10 @@
 
             <div class="">
               <div class="text-center">Content Movie</div>
-              <p class="border border-gray-200 p-2 text-sm">
-                Sự phấn khích bất ngờ tạo nên mối tình lãng mạn giữa Ji-hwan,
-                một cựu thành viên băng đảng to lớn, người đã xóa bỏ quá khứ đen
-                tối của mình và Eun-ha, một người phụ nữ nhỏ bé chơi đùa với trẻ
-                em vì công việc của mình.
-              </p>
+              <p
+                class="border border-gray-200 p-2 text-sm"
+                [innerHTML]="movie?.data?.movieContent"
+              ></p>
             </div>
           </div>
         </div>

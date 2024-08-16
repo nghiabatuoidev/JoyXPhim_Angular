@@ -1,4 +1,6 @@
-export const environment = {
-    production: false,
-    // Các cấu hình khác
-  };
+// environment.ts
+export const environment : any = {
+  production: false,
+  apiUrl: 'http://localhost:5049/api/v1',
+};
+

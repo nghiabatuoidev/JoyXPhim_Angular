@@ -3,1075 +3,663 @@
   aria-modal="true"
   role="dialog"
 >
-  <div class="relative w-[90%] h-[90%]  px-4 md:h-auto bg-[#11171E]">
+  <div class="relative w-[90%] h-[90%] px-4 md:h-auto bg-[#11171E]">
     <!-- Modal content -->
-    <div class="relative rounded-lg shadow ">
-      <!-- Modal header -->
-      <div
-        class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700"
-      >
-        <h3 class="text-xl font-semibold">Add new movie</h3>
-        <button
-          (click)="triggerToggleModalAddMovie()"
-          type="button"
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
+    <form [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
+      <div class="relative rounded-lg shadow">
+        <!-- Modal header -->
+        <div
+          class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700"
         >
-          <svg
-            class="w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+          <h3 class="text-xl font-semibold">Add new movie</h3>
+          <button
+            (click)="triggerToggleModalAddMovie()"
+            type="button"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
           >
-            <path
-              fill-rule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
-      </div>
-      <!-- Modal body -->
-      <div class="p-6 space-y-6 h-[65vh] overflow-auto">
-        <div class="grid grid-cols-6 gap-6">
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Name</label
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
             >
-            <input
-              type="text"
-              name="name"
-              id="name"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Gã Hề"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="origin-name"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Origin Name</label
-            >
-            <input
-              type="text"
-              name="origin-name"
-              id="origin-name"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Joker"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="slug"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Slug</label
-            >
-            <input
-              type="text"
-              name="slug"
-              id="slug"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="ga-he"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="thumb-url"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Thumb Url</label
-            >
-            <input
-              type="text"
-              name="thumb-url"
-              id="thumb-url"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="https://img.ophim.live/uploads/movies/joker-thumb.jpg"
-              required=""
-            />
-          </div>
-
-          <div class="col-span-6 sm:col-span-3">
-            <div
-              class="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Type
-            </div>
-            <button
-              id="dropdownTypeMovieButton"
-              data-dropdown-toggle="dropdownTyoeMovie"
-              class="flex items-center shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              type="button"
-            >
-              Choose
-              <svg
-                class="w-2.5 h-2.5 ms-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-6 space-y-6 h-[65vh] overflow-auto">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="name"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Name</label
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m1 1 4 4 4-4"
-                />
-              </svg>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownTyoeMovie"
-              class="z-10 hidden bg-white rounded-lg shadow w-60 dark:bg-gray-700"
-            >
-              <ul
-                class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownTypeMovieButton"
+              <input
+                formControlName="MovieName"
+                type="text"
+                name="name"
+                id="name"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Gã Hề"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['MovieName'].invalid &&
+                  addMovieForm.controls['MovieName'].touched
+                "
+                class="text-red-600 text-sm mt-1"
               >
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-11"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-11"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Bonnie Green</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      checked
-                      id="checkbox-item-12"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-12"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Jese Leos</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-13"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-13"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Michael Gough</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-14"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-14"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Robert Wall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-15"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-15"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Joseph Mcfall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-16"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-16"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Leslie Livingston</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-17"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-17"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Roberta Casas</label
-                    >
-                  </div>
-                </li>
-              </ul>
+                <span
+                  *ngIf="addMovieForm.controls['MovieName'].errors?.['required']"
+                  >MovieName is required.</span
+                >
+              </div>
             </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-3">
-            <div
-              class="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Status
-            </div>
-            <button
-              id="dropdownStatusButton"
-              data-dropdown-toggle="dropdownStatus"
-              class="flex items-center shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              type="button"
-            >
-              Choose
-              <svg
-                class="w-2.5 h-2.5 ms-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="origin-name"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Origin Name</label
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m1 1 4 4 4-4"
-                />
-              </svg>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownStatus"
-              class="z-10 hidden bg-white rounded-lg shadow w-60 dark:bg-gray-700"
-            >
-              <ul
-                class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownStatusButton"
+              <input
+                formControlName="MovieOriginName"
+                type="text"
+                name="origin-name"
+                id="origin-name"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Joker"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['MovieOriginName'].invalid &&
+                  addMovieForm.controls['MovieOriginName'].touched
+                "
+                class="text-red-600 text-sm mt-1"
               >
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-11"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-11"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Bonnie Green</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      checked
-                      id="checkbox-item-12"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-12"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Jese Leos</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-13"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-13"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Michael Gough</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-14"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-14"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Robert Wall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-15"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-15"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Joseph Mcfall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-16"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-16"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Leslie Livingston</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-17"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-17"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Roberta Casas</label
-                    >
-                  </div>
-                </li>
-              </ul>
+                <span
+                  *ngIf="addMovieForm.controls['MovieOriginName'].errors?.['required']"
+                  >MovieOriginName is required.</span
+                >
+              </div>
             </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-3">
-            <div
-              class="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Genre
-            </div>
-            <button
-              id="dropdownGenreMovieButton"
-              data-dropdown-toggle="dropdownGenreMovie"
-              class="flex items-center shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              type="button"
-            >
-              Choose
-              <svg
-                class="w-2.5 h-2.5 ms-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="slug"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Slug</label
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m1 1 4 4 4-4"
-                />
-              </svg>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownGenreMovie"
-              class="z-10 hidden bg-white rounded-lg shadow w-60 dark:bg-gray-700"
-            >
-              <ul
-                class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownGenreMovieButton"
+              <input
+                formControlName="Slug"
+                type="text"
+                name="slug"
+                id="slug"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="ga-he"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['Slug'].invalid &&
+                  addMovieForm.controls['Slug'].touched
+                "
+                class="text-red-600 text-sm mt-1"
               >
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-11"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-11"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Bonnie Green</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      checked
-                      id="checkbox-item-12"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-12"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Jese Leos</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-13"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-13"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Michael Gough</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-14"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-14"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Robert Wall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-15"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-15"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Joseph Mcfall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-16"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-16"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Leslie Livingston</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-17"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-17"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Roberta Casas</label
-                    >
-                  </div>
-                </li>
-              </ul>
+                <span *ngIf="addMovieForm.controls['Slug'].errors?.['required']"
+                  >Slug is required.</span
+                >
+              </div>
             </div>
-          </div>
-
-          <div class="col-span-6 sm:col-span-3">
-            <div
-              class="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Country
-            </div>
-            <button
-              id="dropdownCountryMovieButton"
-              data-dropdown-toggle="dropdownCountryMovie"
-              class="flex items-center shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              type="button"
-            >
-              Choose
-              <svg
-                class="w-2.5 h-2.5 ms-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="thumb-url"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Thumb Url</label
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m1 1 4 4 4-4"
-                />
-              </svg>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownCountryMovie"
-              class="z-10 hidden bg-white rounded-lg shadow w-60 dark:bg-gray-700"
-            >
-              <ul
-                class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownCountryMovieButton"
+              <input
+                formControlName="ThumbUrl"
+                type="text"
+                name="thumb-url"
+                id="thumb-url"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="https://img.ophim.live/uploads/movies/joker-thumb.jpg"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['ThumbUrl'].invalid &&
+                  addMovieForm.controls['ThumbUrl'].touched
+                "
+                class="text-red-600 text-sm mt-1"
               >
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-11"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-11"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Bonnie Green</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      checked
-                      id="checkbox-item-12"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-12"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Jese Leos</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-13"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-13"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Michael Gough</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-14"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-14"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Robert Wall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-15"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-15"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Joseph Mcfall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-16"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-16"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Leslie Livingston</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-17"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-17"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Roberta Casas</label
-                    >
-                  </div>
-                </li>
-              </ul>
+                <span
+                  *ngIf="addMovieForm.controls['ThumbUrl'].errors?.['required']"
+                  >ThumbUrl is required.</span
+                >
+              </div>
             </div>
-          </div>
 
-          <div class="col-span-6 sm:col-span-3">
-            <div
-              class="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Year Release
-            </div>
-            <button
-              id="dropdownYearReleaseButton"
-              data-dropdown-toggle="dropdownYearRelease"
-              class="flex items-center shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              type="button"
-            >
-              Choose
-              <svg
-                class="w-2.5 h-2.5 ms-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="countries"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Genre</label
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m1 1 4 4 4-4"
-                />
-              </svg>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownYearRelease"
-              class="z-10 hidden bg-white rounded-lg shadow w-60 dark:bg-gray-700"
-            >
-              <ul
-                class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownYearReleaseButton"
+              <select
+                formControlName="TypeId"
+                id="countries"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                <ng-container *ngIf="genres$ | async as genres">
+                  <option
+                    *ngFor="let genre of genres?.data"
+                    value="{{ genre?.typeId }}"
                   >
-                    <input
-                      id="checkbox-item-11"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-11"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Bonnie Green</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      checked
-                      id="checkbox-item-12"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-12"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Jese Leos</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-13"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-13"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Michael Gough</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-14"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-14"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Robert Wall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-15"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-15"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Joseph Mcfall</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-16"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-16"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Leslie Livingston</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="checkbox-item-17"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="checkbox-item-17"
-                      class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Roberta Casas</label
-                    >
-                  </div>
-                </li>
-              </ul>
+                    {{ genre?.value }}
+                  </option>
+                </ng-container>
+              </select>
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['TypeId'].invalid &&
+                  addMovieForm.controls['TypeId'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="addMovieForm.controls['TypeId'].errors?.['required']"
+                  >Geren is required.</span
+                >
+              </div>
             </div>
-          </div>
 
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="movie-time"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Movie Time</label
-            >
-            <input
-              type="text"
-              name="movie-time"
-              id="movie-time"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="60 phút/ tập"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="episode-total"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Episode Total</label
-            >
-            <input
-              type="text"
-              name="episode-total"
-              id="episode-total"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="10 tập"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="quality"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Quality</label
-            >
-            <input
-              type="text"
-              name="quality"
-              id="quality"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="HD"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="language"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Language</label
-            >
-            <input
-              type="text"
-              name="language"
-              id="language"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Vietsub"
-              required=""
-            />
-          </div>
-          
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="status"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Status</label
+              >
+              <select
+                formControlName="StatusId"
+                id="status"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <ng-container *ngIf="status$ | async as statuses"
+                  ><option
+                    *ngFor="let status of statuses?.data"
+                    value="{{ status.statusId }}"
+                  >
+                    {{ status?.value }}
+                  </option>
+                </ng-container>
+              </select>
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['StatusId'].invalid &&
+                  addMovieForm.controls['StatusId'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="addMovieForm.controls['StatusId'].errors?.['required']"
+                  >Status is required.</span
+                >
+              </div>
+            </div>
 
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="trailer-url"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Trailer Url</label
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="yearRelease"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Year Release</label
+              >
+              <select
+                formControlName="YearReleaseId"
+                id="yearRelease"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <ng-container *ngIf="yearReleases$ | async as yearReleases">
+                  <option
+                    *ngFor="let yearRelease of yearReleases?.data"
+                    value="{{ yearRelease?.id }}"
+                  >
+                    {{ yearRelease?.numberYear }}
+                  </option>
+                </ng-container>
+              </select>
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['YearReleaseId'].invalid &&
+                  addMovieForm.controls['YearReleaseId'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="addMovieForm.controls['YearReleaseId'].errors?.['required']"
+                  >YearRelease is required.</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="relative col-span-6 sm:col-span-3"
+              appClickOutside
+              (clickOutside)="handleOpenMutilDropdownCategory()"
             >
-            <input
-              type="text"
-              name="trailer-url"
-              id="trailer-url"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="https://www.youtube.com/watch?v=38bV3T6q2G0"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="director"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Director</label
+              <div class="block mb-2 text-sm font-medium text-gray-900">
+                Category
+              </div>
+              <button
+                (click)="
+                  handleGetAllCategory(); handleToggleMutilDropdownCategory()
+                "
+                class="flex items-center shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                type="button"
+              >
+                <p
+                  *ngIf="
+                    selectedCategoryNames.length !== 0;
+                    else showSelectedCategoryDefault
+                  "
+                >
+                  {{ selectedCategoryNames.join(", ") }}
+                </p>
+                <ng-template #showSelectedCategoryDefault>
+                  <p>Choose</p>
+                </ng-template>
+                <svg
+                  class="w-2.5 h-2.5 ms-2.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+              <!-- Dropdown menu -->
+              <div
+                *ngIf="isOpenMuitilSelectDropdownCategories"
+                class="absolute z-10 bg-white rounded-lg shadow w-60 dark:bg-gray-700"
+              >
+                <ul
+                  *ngIf="categories$ | async as categories"
+                  class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownCountryMovieButton"
+                >
+                  <li *ngFor="let category of categories?.data">
+                    <div
+                      class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                    >
+                      <input
+                        (change)="
+                          onCheckboxChangeCategory(
+                            $event,
+                            category?.categoryId,
+                            category?.categoryName
+                          )
+                        "
+                        [checked]="
+                          selectedCategoryIds.includes(category?.categoryId)
+                        "
+                        id="{{ category?.categoryId }}"
+                        type="checkbox"
+                        value="{{ category?.categoryId }}"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      />
+                      <label
+                        for="{{ category?.categoryId }}"
+                        class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
+                        >{{ category?.categoryName }}</label
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['Category_ids'].invalid &&
+                  addMovieForm.controls['Category_ids'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="addMovieForm.controls['Category_ids'].errors?.['required']"
+                  >Cateogry is required.</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="relative col-span-6 sm:col-span-3"
+              appClickOutside
+              (clickOutside)="handleOpenMutilDropdownCountry()"
             >
-            <input
-              type="text"
-              name="director"
-              id="director"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Cổ Thiên Lạc"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="actor"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Actor</label
-            >
-            <input
-              type="text"
-              name="actor"
-              id="actor"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Cổ Thiên Lạc, Thành Long"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="sub-doc-quyen"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Sub độc quyền</label
-            >
-            <input
-              type="checkbox"
-              name="sub-doc-quyen"
-              id="sub-doc-quyen"
-              required
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="is-chieu-rap"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Chiếu rạp</label
-            >
-            <input type="checkbox" name="is-chieu-rap" id="is-chieu-rap" />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="is-trending"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Trending</label
-            >
-            <input type="checkbox" name="is-trending" id="is-trending" />
-          </div>
-          <div class="col-span-6">
-            <label
-              for="content-movie"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Content Movie</label
-            >
-            <textarea
-              id="content-movie"
-              rows="10"
-              class="block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="A father, immersed in a difficult divorce process, embarks on a dangerous mission when his children disappear from their isolated country house."
-            ></textarea>
+              <div class="block mb-2 text-sm font-medium text-gray-900">
+                Country
+              </div>
+              <button
+                (click)="
+                  handleGetAllCountry(); handleToggleMutilDropdownCountry()
+                "
+                id="dropdownCountryMovieButton"
+                data-dropdown-toggle="dropdownCountryMovie"
+                class="flex items-center shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                type="button"
+              >
+                <p
+                  *ngIf="
+                    selectedCountryNames.length !== 0;
+                    else showSelectedCountriesDefault
+                  "
+                >
+                  {{ selectedCountryNames.join(", ") }}
+                </p>
+                <ng-template #showSelectedCountriesDefault>
+                  <p>Choose</p>
+                </ng-template>
+                <svg
+                  class="w-2.5 h-2.5 ms-2.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+
+              <!-- Dropdown menu -->
+              <div
+                *ngIf="isOpenMuitilSelectDropdownCountries"
+                class="absolute z-10 bg-white rounded-lg shadow w-60 dark:bg-gray-700"
+              >
+                <ul
+                  *ngIf="countries$ | async as countries"
+                  class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdownCountryMovieButton"
+                >
+                  <li *ngFor="let country of countries?.data">
+                    <div
+                      class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                    >
+                      <input
+                        (change)="
+                          onCheckboxChangeCountry(
+                            $event,
+                            country?.countryId,
+                            country?.countryName
+                          )
+                        "
+                        [checked]="
+                          selectedCountryIds.includes(country?.countryId)
+                        "
+                        id="checkbox-item-11"
+                        type="checkbox"
+                        value="{{ country?.countryId }}"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      />
+                      <label
+                        for="checkbox-item-11"
+                        class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
+                        >{{ country?.countryName }}</label
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </div>
+               <!-- Hiển thị thông báo lỗi -->
+               <div
+               *ngIf="
+                 addMovieForm.controls['Country_ids'].invalid &&
+                 addMovieForm.controls['Country_ids'].touched
+               "
+               class="text-red-600 text-sm mt-1"
+             >
+               <span
+                 *ngIf="addMovieForm.controls['Country_ids'].errors?.['required']"
+                 >Country is required.</span
+               >
+             </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="movie-time"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Movie Time</label
+              >
+              <input
+                formControlName="MovieTime"
+                type="text"
+                name="movie-time"
+                id="movie-time"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="60 phút/ tập"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['MovieTime'].invalid &&
+                  addMovieForm.controls['MovieTime'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="addMovieForm.controls['MovieTime'].errors?.['required']"
+                  >MovieTime is required.</span
+                >
+              </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="quality"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Quality</label
+              >
+              <input
+                formControlName="Quality"
+                type="text"
+                name="quality"
+                id="quality"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="HD"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['Quality'].invalid &&
+                  addMovieForm.controls['Quality'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="addMovieForm.controls['Quality'].errors?.['required']"
+                  >Quality is required.</span
+                >
+              </div>
+              
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="lang"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Lang</label
+              >
+              <select
+                formControlName="LangId"
+                id="lang"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <ng-container *ngIf="langs$ | async as langs"
+                  ><option
+                    *ngFor="let lang of langs?.data"
+                    value="{{ lang?.langId }}"
+                  >
+                    {{ lang?.value }}
+                  </option></ng-container
+                >
+              </select>
+               <!-- Hiển thị thông báo lỗi -->
+               <div
+               *ngIf="
+                 addMovieForm.controls['LangId'].invalid &&
+                 addMovieForm.controls['LangId'].touched
+               "
+               class="text-red-600 text-sm mt-1"
+             >
+               <span
+                 *ngIf="addMovieForm.controls['LangId'].errors?.['required']"
+                 >Lang is required.</span
+               >
+             </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="trailer-url"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Trailer Url</label
+              >
+              <input
+                formControlName="TrailerUrl"
+                type="text"
+                name="trailer-url"
+                id="trailer-url"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="https://www.youtube.com/watch?v=38bV3T6q2G0"
+               
+              />
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="director"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Director</label
+              >
+              <input
+                formControlName="DirectorName"
+                type="text"
+                name="director"
+                id="director"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Cổ Thiên Lạc"
+            
+              />
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="actor"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Actor</label
+              >
+              <input
+                formControlName="ActorName"
+                type="text"
+                name="actor"
+                id="actor"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Cổ Thiên Lạc, Thành Long"
+               
+              />
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="sub-doc-quyen"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Sub độc quyền</label
+              >
+              <input
+                formControlName="IsSubDocquyen"
+                type="checkbox"
+                name="sub-doc-quyen"
+                id="sub-doc-quyen"
+              
+              />
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="is-chieu-rap"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Chiếu rạp</label
+              >
+              <input
+                formControlName="IsChieurap"
+                type="checkbox"
+                name="is-chieu-rap"
+                id="is-chieu-rap"
+              />
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="is-trending"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Trending</label
+              >
+              <input
+                formControlName="IsTrending"
+                type="checkbox"
+                name="is-trending"
+                id="is-trending"
+              />
+            </div>
+            <div class="col-span-6">
+              <label
+                for="content-movie"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Content Movie</label
+              >
+              <textarea
+                formControlName="MovieContent"
+                id="content-movie"
+                rows="10"
+                class="block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="A father, immersed in a difficult divorce process, embarks on a dangerous mission when his children disappear from their isolated country house."
+              ></textarea>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Modal footer -->
-      <div
-        class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-700"
-      >
-        <button
-          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          type="submit"
+        <!-- Modal footer -->
+        <div
+          class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-700"
         >
-          Add movie
-        </button>
+          <button
+            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            type="submit"
+          >
+            Add movie
+          </button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
-
