@@ -40,10 +40,12 @@ export class ManageMoviesComponent {
   isOpenModalAddEpisode: boolean = false;
   isCheckedAll: boolean = false;
   selectCheckedIds: any = [];
-  movies: any[] = [];
+
   page: number = 1; // Trang hiện tại
   pageSize: number = 10; // Số lượng mục trên mỗi trang
   totalPages: number = 0; // Tổng số mục (tổng số phim)
+
+  movieIdToAddEpisode: number = 0; // biến dùng để truyền qua modal create episode
 
   constructor(
     private store: Store,
@@ -106,7 +108,6 @@ export class ManageMoviesComponent {
         }
       });
     }
-    console.log(this.selectCheckedIds);
   }
   //change input checked movie to remove range
   onCheckboxChange(event: Event) {
@@ -121,20 +122,31 @@ export class ManageMoviesComponent {
     }
     console.log(this.selectCheckedIds);
   }
+
+  // CRUD MOVIE
   handleRemoveRangeMovieByIds(movieIds: any) {
     if (movieIds.length > 0) {
-      this.movieService.RemoveRangeMovieById(movieIds).subscribe(() => {
-        this.selectCheckedIds = [];
-        this.handleGetAllMovie();
-      });
+      this.movieService
+        .RemoveRangeMovieById(movieIds)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(() => {
+          this.selectCheckedIds = [];
+          this.handleGetAllMovie();
+          this.toastr.success(`Remove ${movieIds.length} movie successfully!`,"Thông Báo");
+        });
+    }else {
+      this.toastr.error(`Remove failed! You don't choose movie to remove!`, "Thông Báo");
     }
   }
   handleDeleteMovieById(movieId: number): void {
     if (movieId) {
-      this.movieService.RemoveMovieById(movieId).subscribe(() => {
-        this.showSuccess('Xóa phim thành công!', 'Thông báo');
-        this.handleGetAllMovie();
-      });
+      this.movieService
+        .RemoveMovieById(movieId)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(() => {
+          this.showSuccess('Xóa phim thành công!', 'Thông báo');
+          this.handleGetAllMovie();
+        });
     }
   }
   handleGetMovie(movieId: number): void {
@@ -161,6 +173,7 @@ export class ManageMoviesComponent {
     //   )
     //   .subscribe(); // Đăng ký để thực hiện tác động, không cần xử lý kết quả
   }
+  //TOAST
   showSuccess(message: string, title: string): any {
     this.toastr.success(message, title);
   }
@@ -191,9 +204,10 @@ export class ManageMoviesComponent {
       document.body.classList.remove('overflow-hidden');
     }
   };
-  handleToggleModalAddEpisode: any = () => {
+  handleToggleModalAddEpisode: any = (movieId: number = 0) => {
     this.isOpenModalAddEpisode = !this.isOpenModalAddEpisode;
     if (this.isOpenModalAddEpisode) {
+      if (movieId != null) this.movieIdToAddEpisode = movieId;
       document.body.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-hidden');

@@ -97,10 +97,11 @@ export class ModalAddMovieComponent {
     this.handleGetAllYearRelease();
     this.handleGetAllLang();
   }
+  ngOnDestroy(): void {
+    this.destroy$.next(); // Phát ra giá trị để hủy tất cả các đăng ký
+    this.destroy$.complete(); // Hoàn tất Subject
+  }
   onSubmit(): void {
-    const formValue = this.addMovieForm.value;
-    console.log(formValue);
-
     if (this.addMovieForm.valid) {
       this.movieService
         .CreateMovie(this.addMovieForm.value)
@@ -152,14 +153,12 @@ export class ModalAddMovieComponent {
     } else {
       if (categoryId) {
         const index = this.selectedCategoryIds.indexOf(categoryId);
-        console.log(index);
         if (index > -1) {
           this.selectedCategoryIds.splice(index, 1);
         }
       }
       if (categoryName) {
         const index = this.selectedCategoryNames.indexOf(categoryName);
-        console.log(index);
         if (index > -1) {
           this.selectedCategoryNames.splice(index, 1);
         }
@@ -247,10 +246,7 @@ export class ModalAddMovieComponent {
       .subscribe(); // Không cần xử lý dữ liệu ở đây
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next(); // Phát ra giá trị để hủy tất cả các đăng ký
-    this.destroy$.complete(); // Hoàn tất Subject
-  }
+ 
 
   triggerToggleModalAddMovie() {
     this.triggerToggleModalAddMovieEvent.emit(); // Phát ra sự kiện để thông báo component cha

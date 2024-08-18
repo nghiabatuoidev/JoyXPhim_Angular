@@ -29,7 +29,6 @@ export class PaginationAdminComponent {
   onPageChange(pageNew: number): void {
     if (pageNew >= 1 && pageNew <= this.totalPages) {
       this.pageCurrent = pageNew;
-      console.log(pageNew, this.pageSize);
       this.pageChange.emit({ page: this.pageCurrent, pageSize: this.pageSize }); // Emit the page change event
     }
     window.scrollTo(0, 0);

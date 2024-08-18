@@ -30,6 +30,8 @@ import { yearRealeasesReducer } from './core/store/year-release/year-release.red
 import { YearReleaseEffects } from './core/store/year-release/year-release.effect';
 import { langsReducer } from './core/store/lang/lang.reducer';
 import { LangEffects } from './core/store/lang/lang.effect';
+import { episodeReducer } from './core/store/episode/episode.reducer';
+import { EpisodeEffects } from './core/store/episode/episode.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -43,9 +45,20 @@ export const appConfig: ApplicationConfig = {
       statuses: statusesReducer,
       genres: genresReducer,
       yearReleases: yearRealeasesReducer,
-      langs: langsReducer
+      langs: langsReducer,
+      episode: episodeReducer,
     }),
-    provideEffects([AuthEffects, MovieEffects, CategoryEffects, CountryEffects, StatusEffects, GenreEffects, YearReleaseEffects, LangEffects]),
+    provideEffects([
+      AuthEffects,
+      MovieEffects,
+      CategoryEffects,
+      CountryEffects,
+      StatusEffects,
+      GenreEffects,
+      YearReleaseEffects,
+      LangEffects,
+      EpisodeEffects,
+    ]),
     provideHttpClient(),
     provideStoreDevtools({
       maxAge: 25,
@@ -57,6 +70,6 @@ export const appConfig: ApplicationConfig = {
     ),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     provideAnimations(),
-    provideToastr({ timeOut: 3000,})
+    provideToastr({ timeOut: 3000 }),
   ],
 };

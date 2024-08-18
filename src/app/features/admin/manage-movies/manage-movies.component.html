@@ -276,7 +276,7 @@
                   </tr>
                 </thead>
                 <tbody
-                  *ngIf="movies$ | async as movies; else loading;"
+                  *ngIf="movies$ | async as movies; else loading"
                   class="divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"
                 >
                   <tr
@@ -380,7 +380,7 @@
                       <button
                         type="button"
                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                        (click)="handleToggleModalAddEpisode()"
+                        (click)="handleToggleModalAddEpisode(movie?.movieId)"
                       >
                         <svg
                           class="w-4 h-4 mr-2"
@@ -421,6 +421,7 @@
                     </td>
                   </tr>
                 </tbody>
+
                 <ng-template #loading>
                   <p>Loading movies...</p>
                 </ng-template>
@@ -461,4 +462,5 @@
 <app-modal-add-episode
   (triggerToggleModalAddEpisodeEvent)="handleToggleModalAddEpisode()"
   *ngIf="isOpenModalAddEpisode"
+  [movieId]="movieIdToAddEpisode"
 />

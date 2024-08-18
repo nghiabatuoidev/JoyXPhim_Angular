@@ -54,6 +54,9 @@ export class ModalEditMovieComponent {
   addMovieForm: FormGroup;
   selectedCategoryIds: number[] = [];
   selectedCountryIds: number[] = [];
+  selectedCoutnryIdsToCompare : number[] = [];
+  selectedCountryIdsToCompare : number[] = [];
+  selectedCategoryIdsToCompare : number[] = [];
   selectedCategoryNames: string[] = [];
   selectedCountryNames: string[] = [];
   private originalFormValue: any;
@@ -110,12 +113,14 @@ export class ModalEditMovieComponent {
           });
           movie?.data?.country_ids.forEach((countryId: number) => {
             this.selectedCountryIds.push(countryId);
+            this.selectedCountryIdsToCompare.push(countryId);
           });
           movie?.data?.categoriesName.forEach((categoryName: string) => {
             this.selectedCategoryNames.push(categoryName);
           });
           movie?.data?.category_ids.forEach((categoryId: number) => {
             this.selectedCategoryIds.push(categoryId);
+            this.selectedCategoryIdsToCompare.push(categoryId);
           });
 
           this.addMovieForm.patchValue({
@@ -148,14 +153,12 @@ export class ModalEditMovieComponent {
   }
   onSubmitEditMovie(movieId: number): void {
     const formValue = this.addMovieForm.value;
-    console.log(formValue.value);
-
     if (this.addMovieForm.valid) {
       // So sánh giá trị mới với giá trị cũ
-      const isChanged =
-      JSON.stringify(formValue) === JSON.stringify(this.originalFormValue);
-      console.log(isChanged);
-      if (!isChanged) {
+        const isChanged = JSON.stringify(formValue) === JSON.stringify(this.originalFormValue);
+        const isChangedCountry = this.selectedCountryIdsToCompare.every((value, index) => value === this.selectedCountryIds[index]);
+        const isChangedCategory = this.selectedCategoryIdsToCompare.every((value, index) => value === this.selectedCategoryIds[index]);
+      if (!isChanged || !isChangedCountry || !isChangedCategory) {
         this.movieService
           .UpdateMovieById(movieId, this.addMovieForm.value)
           .pipe(takeUntil(this.destroy$))
@@ -163,13 +166,15 @@ export class ModalEditMovieComponent {
             this.triggerToggleModalEditMovie();
             this.toastr.success('Cập nhật phim thành công!', 'Thông Báo');
           });
-      }else {
+      } else {
         this.triggerToggleModalEditMovie();
-        this.toastr.error('Cập nhật phim thất bại. Không có thay đổi.', 'Thông Báo')
+        this.toastr.error(
+          'Cập nhật phim thất bại. Không có thay đổi.',
+          'Thông Báo'
+        );
       }
     } else {
       this.addMovieForm.markAllAsTouched();
-      console.log('Form is invalid');
       // Hiển thị thông báo lỗi hoặc xử lý
     }
   }

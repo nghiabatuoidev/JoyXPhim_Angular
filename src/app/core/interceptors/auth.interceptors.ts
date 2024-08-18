@@ -27,7 +27,6 @@ export class AuthInterceptor implements HttpInterceptor {
     if (this.excludedUrls.some((url) => req.url.includes(url))) {
       return next.handle(req);
     }
-    console.log('Interceptor called');
     return this.store.pipe(
       select(selectCurrentUser),
       switchMap((user) => {
@@ -49,12 +48,14 @@ export class AuthInterceptor implements HttpInterceptor {
 
           const authReq = req.clone({
             setHeaders: {
-              Authorization: `Bearer ${token}`,
+              authorization: `Bearer ${token}`,
             },
           });
+        
           return next.handle(authReq);
         }
         this.router.navigate(['/admin/login']);
+        console.log(req);
         return next.handle(req);
       }),
       catchError((err) => {

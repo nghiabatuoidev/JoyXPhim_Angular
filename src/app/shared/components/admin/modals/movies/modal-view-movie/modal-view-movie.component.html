@@ -69,8 +69,8 @@
                     <td class="px-6 py-4">
                       {{
                         movie?.data?.episodeCurrent
-                          ? "Tập" + movie?.data?.episodeCurrent
-                          : "?"
+                          ? "Tập " + movie?.data?.episodeCurrent 
+                          : "Đang cập nhật"
                       }}
                     </td>
                   </tr>
@@ -85,7 +85,7 @@
                       {{
                         movie?.data?.episodeTotal
                           ? movie?.data?.episodeTotal
-                          : "?"
+                          : "Đang cập nhật"
                       }}
                     </td>
                   </tr>
@@ -136,8 +136,8 @@
                       {{
                         movie?.data?.directorName
                           ? movie?.data?.directorName
-                          : "?"
-                      }}t
+                          : "Đang cập nhật"
+                      }}
                     </td>
                   </tr>
                   <tr>
@@ -149,7 +149,7 @@
                     </th>
                     <td class="px-6 py-4">
                       {{
-                        movie?.data?.actorName ? movie?.data?.actorName : "?"
+                        movie?.data?.actorName ? movie?.data?.actorName : "Đang cập nhật"
                       }}
                     </td>
                   </tr>

@@ -40,7 +40,7 @@ export class InputSearchComponent {
         setTimeout(() => {
           this.isLoading = false;
           this.cdr.detectChanges(); // Manually trigger change detection
-        }, 1000);
+        }, 300);
       });
   }
   // ngOnDestroy sẽ được gọi khi 1 component sắp bị hủy

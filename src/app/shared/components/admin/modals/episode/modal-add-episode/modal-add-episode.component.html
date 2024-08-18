@@ -1,136 +1,201 @@
-
 <div
   class="fixed left-0 right-0 z-50 items-center justify-center overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full flex bg-[#0B0F17]/70"
   aria-modal="true"
   role="dialog"
 >
-  <div class="relative w-[90%]  md:w-full h-[90%] max-w-2xl px-4 md:h-auto bg-[#11171E]">
+  <div
+    class="relative w-[90%] md:w-full h-[90%] max-w-2xl px-4 md:h-auto bg-[#11171E]"
+  >
     <!-- Modal content -->
-    <div class="relative rounded-lg shadow ">
-      <!-- Modal header -->
-      <div
-        class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700"
-      >
-        <h3 class="text-xl font-semibold">Add New Episode</h3>
-        <button
-          (click)="triggerToggleModalAddEpisode()"
-          type="button"
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
+    <form [formGroup]="formAddEpisode" (ngSubmit)="onSubmit()">
+      <div class="relative rounded-lg shadow">
+        <!-- Modal header -->
+        <div
+          class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700"
         >
-          <svg
-            class="w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+          <h3 class="text-xl font-semibold">Add New Episode</h3>
+          <button
+            (click)="triggerToggleModalAddEpisode()"
+            type="button"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-700 dark:hover:text-white"
           >
-            <path
-              fill-rule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
-      </div>
-      <!-- Modal body -->
-      <div class="p-6 space-y-6 h-[65vh]  overflow-auto">
-        <div class="grid grid-cols-6 gap-6">
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Name</label
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
             >
-            <input
-              type="text"
-              name="name"
-              id="name"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="1"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="episode_name"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Episode Name</label
-            >
-            <input
-              type="text"
-              name="episode_name"
-              id="episode_name"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Gã Hề 1"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="slug"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Slug</label
-            >
-            <input
-              type="text"
-              name="slug"
-              id="slug"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Gã Hề"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="sever-name"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Sever Name</label
-            >
-            <input
-              type="text"
-              name="sever-name"
-              id="sever-name"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="Vietsub #1"
-              required=""
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <label
-              for="link-embed"
-              class="block mb-2 text-sm font-medium text-gray-900"
-              >Link embed</label
-            >
-            <input
-              type="text"
-              name="link-embed"
-              id="link-embed"
-              class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              placeholder="https://vip.opstream15.com/share/eecccd8ff4107946c78d42265cd474b5"
-              required=""
-            />
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-6 space-y-6 h-[65vh] overflow-auto">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="name"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Name</label
+              >
+              <input
+                formControlName="Name"
+                type="text"
+                name="name"
+                id="name"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="1"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  formAddEpisode.controls['Name'].invalid &&
+                  formAddEpisode.controls['Name'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="formAddEpisode.controls['Name'].errors?.['required']"
+                  >Name is required.</span
+                >
+                <!-- <span *ngIf="formAddEpisode.controls['Name'].errors?.['pattern']">
+                  Name must be a number or the word "Full" (case-insensitive).
+                </span> -->
+              </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="lug"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Slug</label
+              >
+              <input
+                formControlName="Slug"
+                type="text"
+                name="slug"
+                id="slug"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Gã Hề"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  formAddEpisode.controls['Slug'].invalid &&
+                  formAddEpisode.controls['Slug'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="formAddEpisode.controls['Slug'].errors?.['required']"
+                  >Slug is required.</span
+                >
+                <!-- <span *ngIf="formAddEpisode.controls['Slug'].errors?.['pattern']">
+                  Slug must be a number or the word "Full" (case-insensitive).
+                </span> -->
+              </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="episode_name"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Episode Name</label
+              >
+              <input
+                formControlName="EpisodeName"
+                type="text"
+                name="episode_name"
+                id="episode_name"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Gã Hề 1"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  formAddEpisode.controls['EpisodeName'].invalid &&
+                  formAddEpisode.controls['EpisodeName'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="formAddEpisode.controls['EpisodeName'].errors?.['required']"
+                  >EpisodeName is required.</span
+                >
+               
+              </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="link-embed-1"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Link Embed 1</label
+              >
+              <input
+                formControlName="LinkEmbed_1"
+                type="text"
+                name="link-embed-1"
+                id="link-embed-1"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="https://vip.opstream13.com/share/a35fe7f7fe8217b4369a0af4244d1fca"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  formAddEpisode.controls['LinkEmbed_1'].invalid &&
+                  formAddEpisode.controls['LinkEmbed_1'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="formAddEpisode.controls['LinkEmbed_1'].errors?.['required']"
+                  >LinkEmbed_1 is required.</span
+                >
+              </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="link-embed-2"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Link Embed 2</label
+              >
+              <input
+                formControlName="LinkEmbed_2"
+                type="text"
+                name="link-embed-2"
+                id="link-embed-2"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="https://vip.opstream13.com/share/a35fe7f7fe8217b4369a0af4244d1fca"
+              />
+            </div>
           </div>
         </div>
-        
-      </div>
-      <!-- Modal footer -->
-      <div
-        class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-700"
-      >
-        <button
-          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          type="submit"
+        <!-- Modal footer -->
+        <div
+          class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-700"
         >
-          Add movie
-        </button>
-        <button
-        (click)="triggerToggleModalAddEpisode()"
-          type="button"
-          class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-        >
-          Decline
-        </button>
+          <button
+            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            type="submit"
+          >
+            Add
+          </button>
+          <button
+            (click)="triggerToggleModalAddEpisode()"
+            type="button"
+            class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          >
+            Decline
+          </button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
-
