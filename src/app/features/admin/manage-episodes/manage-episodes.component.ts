@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { PaginationAdminComponent } from '../../../shared/components/admin/pagination-admin/pagination-admin.component';
 import { Observable, Subject, takeUntil } from 'rxjs';
 
@@ -13,34 +13,38 @@ import { InputSearchAdminComponent } from '../../../shared/components/admin/inpu
 @Component({
   selector: 'app-manage-episodes',
   standalone: true,
-  imports: [CommonModule, PaginationAdminComponent, ModalListEpisodeComponent, InputSearchAdminComponent],
+  imports: [
+    CommonModule,
+    PaginationAdminComponent,
+    ModalListEpisodeComponent,
+    InputSearchAdminComponent,
+  ],
   templateUrl: `./manage-episodes.component.html`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ManageEpisodesComponent {
   isOpenModalListEpisode: boolean = false;
   private destroy$ = new Subject<void>();
 
   movies$: Observable<any>;
-  serverId : any;
+  serverId: any;
   page: number = 1; // Trang hiện tại
   pageSize: number = 10; // Số lượng mục trên mỗi trang
   totalPages: number = 0; // Tổng số mục (tổng số phim)
   constructor(private store: Store) {
     this.movies$ = this.store.pipe(select(selectAllMovies));
   }
-  
+
   ngOnInit(): void {
     this.handleGetAllMovie();
 
-     //get total page
-     this.movies$
-     .pipe(
-       takeUntil(this.destroy$) // Complete subscription when component is destroyed
-     )
-     .subscribe((movies) => {
-       this.totalPages = movies?.totalPages;
-     });
+    //get total page
+    this.movies$
+      .pipe(
+        takeUntil(this.destroy$) // Complete subscription when component is destroyed
+      )
+      .subscribe((movies) => {
+        this.totalPages = movies?.totalPages;
+      });
   }
   ngOnDestroy(): void {
     this.destroy$.next(); // Phát ra giá trị để hủy tất cả các đăng ký

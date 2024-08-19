@@ -20,7 +20,7 @@ export class MovieService {
         })
       );
   }
-  //GHET MOVE BY ID
+  //GET MOVE BY ID
   GetMovie(movieId: number): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}/movie/${movieId}`).pipe(
       catchError((error) => {
@@ -29,10 +29,33 @@ export class MovieService {
     );
   }
   // Tạo HttpParams với các tham số query
-  GetAllMovie(page: number = 1, pageSize: number = 10): Observable<any> {
-    const params = new HttpParams()
+  GetAllMovie(
+    page: number = 1,
+    pageSize: number = 10,
+    genreId?: number,
+    categoryId?: number,
+    countryId?: number,
+    yearId?: number
+  ): Observable<any> {
+    let params = new HttpParams()
       .set('page', page.toString())
       .set('pageSize', pageSize.toString());
+
+    if (genreId) {
+      params = params.set('genreId', genreId.toString());
+    }
+
+    if (categoryId) {
+      params = params.set('categoryId', categoryId.toString());
+    }
+
+    if (countryId) {
+      params = params.set('countryId', countryId.toString());
+    }
+
+    if (yearId) {
+      params = params.set('yearId', yearId.toString());
+    }
     return this.http
       .get<any>(`${environment.apiUrl}/movie/list`, { params })
       .pipe(
@@ -43,7 +66,6 @@ export class MovieService {
   }
   //CREATE MOVIE
   CreateMovie(movie: any): Observable<any> {
-    console.log(movie);
     return this.http.post<any>(`${environment.apiUrl}/movie/add`, movie).pipe(
       catchError((error) => {
         console.log(error);

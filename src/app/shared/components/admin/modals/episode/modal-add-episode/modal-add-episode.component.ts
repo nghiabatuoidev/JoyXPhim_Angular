@@ -7,11 +7,9 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import {Store } from '@ngrx/store';
 import { initFlowbite } from 'flowbite';
-import { Observable, Subject, take, takeUntil, tap } from 'rxjs';
-import { selectStatuses } from '../../../../../../core/store/status/status.selector';
-import * as StatusActions from '../../../../../../core/store/status/status.action';
+import { Subject, takeUntil } from 'rxjs';
 import {
   FormBuilder,
   FormGroup,
@@ -39,8 +37,8 @@ export class ModalAddEpisodeComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.formAddEpisode = this.fb.group({
-      Name: ['', [Validators.required]],
-      Slug: ['', Validators.required],
+      Name: ['', [Validators.required,  Validators.pattern(/^(?:[0-9]+|[Ff]ull)$/)]],
+      Slug: ['', [Validators.required,  Validators.pattern(/^(?:[0-9]+|[Ff]ull)$/)]],
       EpisodeName: ['', [Validators.required]],
       LinkEmbed_1: ['', Validators.required],
       LinkEmbed_2: [''],

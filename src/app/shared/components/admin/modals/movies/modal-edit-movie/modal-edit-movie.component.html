@@ -9,7 +9,7 @@
   >
     <!-- Modal content -->
     <form
-      [formGroup]="addMovieForm"
+      [formGroup]="editMovieForm"
       (ngSubmit)="onSubmitEditMovie(movie?.data?.movieId)"
     >
       <div class="relative rounded-lg shadow">
@@ -58,13 +58,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['MovieName'].invalid &&
-                  addMovieForm.controls['MovieName'].touched
+                  editMovieForm.controls['MovieName'].invalid &&
+                  editMovieForm.controls['MovieName'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['MovieName'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['MovieName'].errors?.['required']"
                   >MovieName is required.</span
                 >
               </div>
@@ -87,13 +87,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['MovieOriginName'].invalid &&
-                  addMovieForm.controls['MovieOriginName'].touched
+                  editMovieForm.controls['MovieOriginName'].invalid &&
+                  editMovieForm.controls['MovieOriginName'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['MovieOriginName'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['MovieOriginName'].errors?.['required']"
                   >MovieOriginName is required.</span
                 >
               </div>
@@ -116,12 +116,12 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['Slug'].invalid &&
-                  addMovieForm.controls['Slug'].touched
+                  editMovieForm.controls['Slug'].invalid &&
+                  editMovieForm.controls['Slug'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
-                <span *ngIf="addMovieForm.controls['Slug'].errors?.['required']"
+                <span *ngIf="editMovieForm.controls['Slug'].errors?.['required']"
                   >Slug is required.</span
                 >
               </div>
@@ -144,18 +144,49 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['ThumbUrl'].invalid &&
-                  addMovieForm.controls['ThumbUrl'].touched
+                  editMovieForm.controls['ThumbUrl'].invalid &&
+                  editMovieForm.controls['ThumbUrl'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['ThumbUrl'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['ThumbUrl'].errors?.['required']"
                   >ThumbUrl is required.</span
                 >
               </div>
             </div>
-
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="episode-total"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Episode Total</label
+              >
+              <input
+                formControlName="EpisodeTotal"
+                type="text"
+                name="episode-total"
+                id="episode-total"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="0"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  editMovieForm.controls['EpisodeTotal'].invalid &&
+                  editMovieForm.controls['EpisodeTotal'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="editMovieForm.controls['EpisodeTotal'].errors?.['required']"
+                  >EpisodeTotal is required.</span
+                >
+                <div *ngIf="editMovieForm.controls['EpisodeTotal'].errors?.['pattern']">
+                  Value don't is number.
+                </div>
+              </div>
+            </div>
             <div class="col-span-6 sm:col-span-3">
               <label
                 for="genre"
@@ -179,13 +210,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['TypeId'].invalid &&
-                  addMovieForm.controls['TypeId'].touched
+                  editMovieForm.controls['TypeId'].invalid &&
+                  editMovieForm.controls['TypeId'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['TypeId'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['TypeId'].errors?.['required']"
                   >Geren is required.</span
                 >
               </div>
@@ -214,13 +245,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['StatusId'].invalid &&
-                  addMovieForm.controls['StatusId'].touched
+                  editMovieForm.controls['StatusId'].invalid &&
+                  editMovieForm.controls['StatusId'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['StatusId'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['StatusId'].errors?.['required']"
                   >Status is required.</span
                 >
               </div>
@@ -249,13 +280,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['YearReleaseId'].invalid &&
-                  addMovieForm.controls['YearReleaseId'].touched
+                  editMovieForm.controls['YearReleaseId'].invalid &&
+                  editMovieForm.controls['YearReleaseId'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['YearReleaseId'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['YearReleaseId'].errors?.['required']"
                   >YearRelease is required.</span
                 >
               </div>
@@ -345,13 +376,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['Category_ids'].invalid &&
-                  addMovieForm.controls['Category_ids'].touched
+                  editMovieForm.controls['Category_ids'].invalid &&
+                  editMovieForm.controls['Category_ids'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['Category_ids'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['Category_ids'].errors?.['required']"
                   >Cateogry is required.</span
                 >
               </div>
@@ -444,13 +475,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['Country_ids'].invalid &&
-                  addMovieForm.controls['Country_ids'].touched
+                  editMovieForm.controls['Country_ids'].invalid &&
+                  editMovieForm.controls['Country_ids'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['Country_ids'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['Country_ids'].errors?.['required']"
                   >Country is required.</span
                 >
               </div>
@@ -469,21 +500,8 @@
                 id="movie-time"
                 class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="60 phút/ tập"
-                required=""
               />
-              <!-- Hiển thị thông báo lỗi -->
-              <div
-                *ngIf="
-                  addMovieForm.controls['MovieTime'].invalid &&
-                  addMovieForm.controls['MovieTime'].touched
-                "
-                class="text-red-600 text-sm mt-1"
-              >
-                <span
-                  *ngIf="addMovieForm.controls['MovieTime'].errors?.['required']"
-                  >MovieTime is required.</span
-                >
-              </div>
+              
             </div>
             <div class="col-span-6 sm:col-span-3">
               <label
@@ -503,13 +521,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['Quality'].invalid &&
-                  addMovieForm.controls['Quality'].touched
+                  editMovieForm.controls['Quality'].invalid &&
+                  editMovieForm.controls['Quality'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['Quality'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['Quality'].errors?.['required']"
                   >Quality is required.</span
                 >
               </div>
@@ -537,13 +555,13 @@
               <!-- Hiển thị thông báo lỗi -->
               <div
                 *ngIf="
-                  addMovieForm.controls['LangId'].invalid &&
-                  addMovieForm.controls['LangId'].touched
+                  editMovieForm.controls['LangId'].invalid &&
+                  editMovieForm.controls['LangId'].touched
                 "
                 class="text-red-600 text-sm mt-1"
               >
                 <span
-                  *ngIf="addMovieForm.controls['LangId'].errors?.['required']"
+                  *ngIf="editMovieForm.controls['LangId'].errors?.['required']"
                   >Lang is required.</span
                 >
               </div>

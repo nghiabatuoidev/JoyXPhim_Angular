@@ -47,8 +47,8 @@ export class ModalEditEpisodeComponent {
     private toastr: ToastrService
   ) {
     this.formEditEpisode = this.fb.group({
-      Name: ['', [Validators.required]],
-      Slug: ['', Validators.required],
+      Name: ['', [Validators.required,  Validators.pattern(/^(?:[0-9]+|[Ff]ull)$/)]],
+      Slug: ['', [Validators.required,  Validators.pattern(/^(?:[0-9]+|[Ff]ull)$/)]],
       EpisodeName: ['', [Validators.required]],
       LinkEmbed_1: ['', Validators.required],
       LinkEmbed_2: [''],

@@ -67,9 +67,9 @@
                   *ngIf="formEditEpisode.controls['Name'].errors?.['required']"
                   >Name is required.</span
                 >
-                <!-- <span *ngIf="formEditEpisode.controls['Name'].errors?.['pattern']">
-                  Name must be a number or the word "Full" (case-insensitive).
-                </span> -->
+                <div *ngIf="formEditEpisode.controls['Name'].errors?.['pattern']">
+                  Only numeric values or 'Full'/'full' are allowed.
+                </div>
               </div>
             </div>
             <div class="col-span-6 sm:col-span-3">
@@ -99,9 +99,9 @@
                   *ngIf="formEditEpisode.controls['Slug'].errors?.['required']"
                   >Slug is required.</span
                 >
-                <!-- <span *ngIf="formEditEpisode.controls['Slug'].errors?.['pattern']">
-                  Slug must be a number or the word "Full" (case-insensitive).
-                </span> -->
+                <div *ngIf="formEditEpisode.controls['Slug'].errors?.['pattern']">
+                  Only numeric values or 'Full'/'full' are allowed.
+                </div>
               </div>
             </div>
             <div class="col-span-6 sm:col-span-3">

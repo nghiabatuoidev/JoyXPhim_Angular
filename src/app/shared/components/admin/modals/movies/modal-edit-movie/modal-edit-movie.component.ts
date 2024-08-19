@@ -51,7 +51,7 @@ export class ModalEditMovieComponent {
   genres$: Observable<any>;
   yearReleases$: Observable<any>;
   langs$: Observable<any>;
-  addMovieForm: FormGroup;
+  editMovieForm: FormGroup;
   selectedCategoryIds: number[] = [];
   selectedCountryIds: number[] = [];
   selectedCoutnryIdsToCompare : number[] = [];
@@ -67,12 +67,13 @@ export class ModalEditMovieComponent {
     private movieService: MovieService,
     private toastr: ToastrService
   ) {
-    this.addMovieForm = this.fb.group({
+    this.editMovieForm = this.fb.group({
       MovieName: ['', [Validators.required]],
       MovieOriginName: ['', [Validators.required]],
       Slug: ['', Validators.required],
       ThumbUrl: ['', Validators.required],
-      MovieTime: ['', Validators.required],
+      EpisodeTotal:['', [ Validators.pattern(/^[0-9]+$/)]],
+      MovieTime: [null],
       Quality: ['', Validators.required],
       LangId: ['', Validators.required],
       TrailerUrl: [null],
@@ -123,12 +124,13 @@ export class ModalEditMovieComponent {
             this.selectedCategoryIdsToCompare.push(categoryId);
           });
 
-          this.addMovieForm.patchValue({
+          this.editMovieForm.patchValue({
             MovieName: movie?.data?.movieName,
             MovieOriginName: movie?.data?.movieOriginName,
             Quality: movie?.data?.quality,
             Slug: movie?.data?.slug,
             ThumbUrl: movie?.data?.thumbUrl,
+            EpisodeTotal: movie?.data?.episodeTotal,
             MovieTime: movie?.data?.movieTime,
             TrailerUrl: movie?.data?.trailerUrl,
             DirectorName: movie?.data?.directorName,
@@ -145,22 +147,22 @@ export class ModalEditMovieComponent {
             Country_ids: this.selectedCountryIds,
           });
           //
-          this.originalFormValue = { ...this.addMovieForm.value };
+          this.originalFormValue = { ...this.editMovieForm.value };
           // Cập nhật giá trị mặc định cho form
         })
       )
       .subscribe();
   }
   onSubmitEditMovie(movieId: number): void {
-    const formValue = this.addMovieForm.value;
-    if (this.addMovieForm.valid) {
+    const formValue = this.editMovieForm.value;
+    if (this.editMovieForm.valid) {
       // So sánh giá trị mới với giá trị cũ
         const isChanged = JSON.stringify(formValue) === JSON.stringify(this.originalFormValue);
         const isChangedCountry = this.selectedCountryIdsToCompare.every((value, index) => value === this.selectedCountryIds[index]);
         const isChangedCategory = this.selectedCategoryIdsToCompare.every((value, index) => value === this.selectedCategoryIds[index]);
       if (!isChanged || !isChangedCountry || !isChangedCategory) {
         this.movieService
-          .UpdateMovieById(movieId, this.addMovieForm.value)
+          .UpdateMovieById(movieId, this.editMovieForm.value)
           .pipe(takeUntil(this.destroy$))
           .subscribe(() => {
             this.triggerToggleModalEditMovie();
@@ -174,7 +176,7 @@ export class ModalEditMovieComponent {
         );
       }
     } else {
-      this.addMovieForm.markAllAsTouched();
+      this.editMovieForm.markAllAsTouched();
       // Hiển thị thông báo lỗi hoặc xử lý
     }
   }
@@ -200,7 +202,7 @@ export class ModalEditMovieComponent {
         }
       }
     }
-    this.addMovieForm.patchValue({ Country_ids: this.selectedCountryIds });
+    this.editMovieForm.patchValue({ Country_ids: this.selectedCountryIds });
   }
   onCheckboxChangeCategory(
     event: any,
@@ -228,7 +230,7 @@ export class ModalEditMovieComponent {
         }
       }
     }
-    this.addMovieForm.patchValue({ Category_ids: this.selectedCategoryIds });
+    this.editMovieForm.patchValue({ Category_ids: this.selectedCategoryIds });
   }
 
   handleGetAllLang() {

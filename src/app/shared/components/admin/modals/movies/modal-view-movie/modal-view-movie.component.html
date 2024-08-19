@@ -41,13 +41,14 @@
             <img
               class="object-center md:object-cover w-full h-full"
               [src]="movie?.data?.thumbUrl || urlImageNotFound"
-              alt="Not Image"
+              alt="{{ movie?.data?.movieName }}"
+              loading="lazy"
             />
           </div>
           <div class="md:w-2/4 flex flex-col p-4">
             <div class="text-center mb-2">
               <h5
-                class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white uppercase"
               >
                 {{ movie?.data?.movieName }}
               </h5>
@@ -67,11 +68,42 @@
                       Trạng thái
                     </th>
                     <td class="px-6 py-4">
-                      {{
-                        movie?.data?.episodeCurrent
-                          ? "Tập " + movie?.data?.episodeCurrent 
-                          : "Đang cập nhật"
-                      }}
+                      <ng-container
+                        *ngIf="movie?.data?.episodeCurrent === 'Full'"
+                        >{{ movie?.data?.episodeCurrent }}</ng-container
+                      >
+                      <ng-container
+                        *ngIf="
+                          movie?.data?.episodeCurrent !== 'Full' &&
+                          movie?.data?.episodeCurrent !== null &&
+                          movie?.data?.episodeCurrent !==
+                            movie?.data?.episodeTotal
+                        "
+                        >{{
+                          "Tập " +
+                            movie?.data?.episodeCurrent +
+                            "/" +
+                            movie?.data?.episodeTotal
+                        }}</ng-container
+                      >
+                      <ng-container
+                        *ngIf="
+                          movie?.data?.episodeCurrent !== 'Full' &&
+                          movie?.data?.episodeCurrent !== null &&
+                          movie?.data?.episodeCurrent ===
+                            movie?.data?.episodeTotal
+                        "
+                        >{{
+                          "Hoàn Tất (" +
+                            movie?.data?.episodeCurrent +
+                            "/" +
+                            movie?.data?.episodeTotal +
+                            ")"
+                        }}</ng-container
+                      >
+                      <ng-container *ngIf="movie?.data?.episodeCurrent === null"
+                        >Trailer</ng-container
+                      >
                     </td>
                   </tr>
                   <tr class="border-b border-gray-200 dark:border-gray-700">
@@ -96,7 +128,7 @@
                     >
                       Thời lượng
                     </th>
-                    <td class="px-6 py-4">{{ movie?.data?.movieTime }}</td>
+                    <td class="px-6 py-4">{{ movie?.data?.movieTime  ? movie?.data?.movieTime : "Đang cập nhật"}}</td>
                   </tr>
                   <tr class="border-b border-gray-200 dark:border-gray-700">
                     <th
@@ -149,7 +181,9 @@
                     </th>
                     <td class="px-6 py-4">
                       {{
-                        movie?.data?.actorName ? movie?.data?.actorName : "Đang cập nhật"
+                        movie?.data?.actorName
+                          ? movie?.data?.actorName
+                          : "Đang cập nhật"
                       }}
                     </td>
                   </tr>

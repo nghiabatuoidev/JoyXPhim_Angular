@@ -13,7 +13,7 @@
         <div
           class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-700"
         >
-          <h3 class="text-xl font-semibold">Add New Episode</h3>
+          <h3 class="text-xl font-semibold">ADD NEW EPISODE</h3>
           <button
             (click)="triggerToggleModalAddEpisode()"
             type="button"
@@ -63,9 +63,9 @@
                   *ngIf="formAddEpisode.controls['Name'].errors?.['required']"
                   >Name is required.</span
                 >
-                <!-- <span *ngIf="formAddEpisode.controls['Name'].errors?.['pattern']">
-                  Name must be a number or the word "Full" (case-insensitive).
-                </span> -->
+                <div *ngIf="formAddEpisode.controls['Name'].errors?.['pattern']">
+                  Only numeric values or 'Full'/'full' are allowed.
+                </div>
               </div>
             </div>
             <div class="col-span-6 sm:col-span-3">
@@ -95,9 +95,9 @@
                   *ngIf="formAddEpisode.controls['Slug'].errors?.['required']"
                   >Slug is required.</span
                 >
-                <!-- <span *ngIf="formAddEpisode.controls['Slug'].errors?.['pattern']">
-                  Slug must be a number or the word "Full" (case-insensitive).
-                </span> -->
+                <div *ngIf="formAddEpisode.controls['Slug'].errors?.['pattern']">
+                  Only numeric values or 'Full'/'full' are allowed.
+                </div>
               </div>
             </div>
             <div class="col-span-6 sm:col-span-3">

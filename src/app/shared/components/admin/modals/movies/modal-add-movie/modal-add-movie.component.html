@@ -149,7 +149,38 @@
                 >
               </div>
             </div>
-
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="episode-total"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Episode Total</label
+              >
+              <input
+                formControlName="EpisodeTotal"
+                type="text"
+                name="episode-total"
+                id="episode-total"
+                class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="0"
+                required=""
+              />
+              <!-- Hiển thị thông báo lỗi -->
+              <div
+                *ngIf="
+                  addMovieForm.controls['EpisodeTotal'].invalid &&
+                  addMovieForm.controls['EpisodeTotal'].touched
+                "
+                class="text-red-600 text-sm mt-1"
+              >
+                <span
+                  *ngIf="addMovieForm.controls['EpisodeTotal'].errors?.['required']"
+                  >EpisodeTotal is required.</span
+                >
+                <div *ngIf="addMovieForm.controls['EpisodeTotal'].errors?.['pattern']">
+                  Value don't is number.
+                </div>
+              </div>
+            </div>
             <div class="col-span-6 sm:col-span-3">
               <label
                 for="genre"
@@ -305,7 +336,6 @@
                 <ul
                   *ngIf="categories$ | async as categories"
                   class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownCountryMovieButton"
                 >
                   <li *ngFor="let category of categories?.data">
                     <div
@@ -463,21 +493,7 @@
                 id="movie-time"
                 class="shadow-sm border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="60 phút/ tập"
-                required=""
               />
-              <!-- Hiển thị thông báo lỗi -->
-              <div
-                *ngIf="
-                  addMovieForm.controls['MovieTime'].invalid &&
-                  addMovieForm.controls['MovieTime'].touched
-                "
-                class="text-red-600 text-sm mt-1"
-              >
-                <span
-                  *ngIf="addMovieForm.controls['MovieTime'].errors?.['required']"
-                  >MovieTime is required.</span
-                >
-              </div>
             </div>
             <div class="col-span-6 sm:col-span-3">
               <label

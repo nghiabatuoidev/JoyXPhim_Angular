@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PaginationAdminComponent } from '../../../shared/components/admin/pagination-admin/pagination-admin.component';
 import { ModalAddMovieComponent } from '../../../shared/components/admin/modals/movies/modal-add-movie/modal-add-movie.component';
@@ -38,6 +42,8 @@ export class ManageMoviesComponent {
   isOpenModalEditMovie: boolean = false;
   isOpenModalViewMovie: boolean = false;
   isOpenModalAddEpisode: boolean = false;
+  isOpenModalDeleteMovieById: boolean = false;
+
   isCheckedAll: boolean = false;
   selectCheckedIds: any = [];
 
@@ -45,12 +51,13 @@ export class ManageMoviesComponent {
   pageSize: number = 10; // Số lượng mục trên mỗi trang
   totalPages: number = 0; // Tổng số mục (tổng số phim)
 
-  movieIdToAddEpisode: number = 0; // biến dùng để truyền qua modal create episode
+  movieId: number = 0; // biến dùng để truyền qua modal create episode
 
   constructor(
     private store: Store,
     private movieService: MovieService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private cdr: ChangeDetectorRef
   ) {
     this.movies$ = this.store.pipe(select(selectAllMovies));
   }
@@ -74,7 +81,6 @@ export class ManageMoviesComponent {
   // Xử lý khi người dùng thay đổi trang
   onPageChange(event: { page: number; pageSize: number }): void {
     const { page, pageSize } = event;
-
     this.page = page;
     this.pageSize = pageSize;
     this.handleGetAllMovie();
@@ -120,7 +126,6 @@ export class ManageMoviesComponent {
         this.selectCheckedIds.splice(index, 1);
       }
     }
-    console.log(this.selectCheckedIds);
   }
 
   // CRUD MOVIE
@@ -132,10 +137,16 @@ export class ManageMoviesComponent {
         .subscribe(() => {
           this.selectCheckedIds = [];
           this.handleGetAllMovie();
-          this.toastr.success(`Remove ${movieIds.length} movie successfully!`,"Thông Báo");
+          this.toastr.success(
+            `Remove ${movieIds.length} movie successfully!`,
+            'Thông Báo'
+          );
         });
-    }else {
-      this.toastr.error(`Remove failed! You don't choose movie to remove!`, "Thông Báo");
+    } else {
+      this.toastr.error(
+        `Remove failed! You don't choose movie to remove!`,
+        'Thông Báo'
+      );
     }
   }
   handleDeleteMovieById(movieId: number): void {
@@ -144,6 +155,7 @@ export class ManageMoviesComponent {
         .RemoveMovieById(movieId)
         .pipe(takeUntil(this.destroy$))
         .subscribe(() => {
+          this.isOpenModalDeleteMovieById = false;
           this.showSuccess('Xóa phim thành công!', 'Thông báo');
           this.handleGetAllMovie();
         });
@@ -207,10 +219,16 @@ export class ManageMoviesComponent {
   handleToggleModalAddEpisode: any = (movieId: number = 0) => {
     this.isOpenModalAddEpisode = !this.isOpenModalAddEpisode;
     if (this.isOpenModalAddEpisode) {
-      if (movieId != null) this.movieIdToAddEpisode = movieId;
+      if (movieId > 0) this.movieId = movieId;
       document.body.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-hidden');
     }
+  };
+  handleToggleModalRemoveMovieById: any = (movieId: number = 0) => {
+    if (movieId > 0) {
+      this.movieId = movieId;
+    }
+    this.isOpenModalDeleteMovieById = !this.isOpenModalDeleteMovieById;
   };
 }

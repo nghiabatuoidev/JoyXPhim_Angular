@@ -40,7 +40,7 @@ export class InputSearchAdminComponent {
       .pipe(
         map((value: string) => value.trim()),
         //lọc value > 5 kí tự
-        filter((value) => value.length >= 4 || value.length === 0),
+        filter((value) => value.length >= 5 || value.length === 0),
         distinctUntilChanged(),
         debounceTime(500),
         tap(() => {
@@ -51,17 +51,13 @@ export class InputSearchAdminComponent {
       )
       .subscribe((value) => {
         if (value.length === 0) {
-          setTimeout(() => {
-            this.isLoading = false;
-            this.cdr.detectChanges();
-            this.handleGetAllMovie(this.pageCurrent, this.pageSize);
-          }, 1000);
+          this.isLoading = false;
+          this.cdr.detectChanges();
+          this.handleGetAllMovie(this.pageCurrent, this.pageSize);
         } else {
-          setTimeout(() => {
-            this.isLoading = false;
-            this.cdr.detectChanges();
-            this.handleFindMoveBykeyword(value);
-          }, 1000);
+          this.isLoading = false;
+          this.cdr.detectChanges();
+          this.handleFindMoveBykeyword(value);
         }
       });
   }
